@@ -38,10 +38,19 @@ set incsearch
 set laststatus=2
 set noshowmode
 set ttimeoutlen=50
+
+" Plugin toggle comment
+xnoremap <C-\> gc
+
 " Plugin de highlight C++
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 
-" Plugin toggle comment
-xnoremap <C-\> gc
+" Default highlight java
+" let java_comment_strings=1 
+let java_highlight_functions=1 
+let java_highlight_java_lang_ids=1 
+
+ " Italics para sublimemonokai
+ let g:sublimemonokai_term_italic = 1
