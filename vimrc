@@ -34,6 +34,12 @@ set lazyredraw
 set hlsearch
 set incsearch
 
+" Buffer options
+set hid
+
+" Return to last edit position when opening files (You want this!)
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
 " Plugin de la barra esa
 set laststatus=2
 set noshowmode
@@ -52,5 +58,3 @@ let g:cpp_class_decl_highlight = 1
 let java_highlight_functions=1 
 let java_highlight_java_lang_ids=1 
 
- " Italics para sublimemonokai
- let g:sublimemonokai_term_italic = 1
