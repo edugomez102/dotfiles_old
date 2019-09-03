@@ -1,3 +1,4 @@
 # Installation
+	cd 
 	git clone https://github.com/edugomez102/dotfiles
-	mv dotfile .vim
+	mv dotfiles .vim
