@@ -36,6 +36,10 @@ set smartcase
 
 " Buffer options
 set hid
+" Netrw options
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 
 " With a MAP LEADER it's possible to do extra key combinations
 let mapleader = ","
@@ -50,19 +54,23 @@ map <leader>h :bprevious<cr>
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 " Close the current buffer
-map <leader>bd :bdelete<cr>:tabclose<cr>gT
+map <leader>j :ls<cr>
+map <leader>bd :bdelete<cr>
+":tabclose<cr>gT
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove<cr>
-map <leader>t<leader> :tabnext<cr>
+map <leader>tt :tabnext<cr>
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/<cr>
 
+map <leader>e :Explore<cr>
+map <leader>qa :qall<cr>
 
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
