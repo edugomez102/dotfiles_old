@@ -1,10 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/home/edu102/.vim'
-let g:netrw_dirhist_2='/media/edu102/Elements/mult/SegundoC/veranoPre/delwha/eda/p0'
-let g:netrw_dirhist_3='/home/edu102/.vim'
-let g:netrw_dirhist_4='/home/edu102/.vim/test'
-let g:netrw_dirhist_5='/media/edu102/Elements/mult/CompartidaVB/p2pr3'
-let g:netrw_dirhist_6='/media/edu102/Elements/mult/CompartidaVB/p2pr3/mucho'
-let g:netrw_dirhist_7='/home/edu102/.vim'
-let g:netrw_dirhist_8='/media/edu102/Elements/mult/SegundoC/veranoPre/delwha/eda/p0'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/edu/.vim/bundle/vim-wakatime'
+let g:netrw_dirhist_2='/home/edu/.vim/bundle/vim-wakatime/plugin'
+let g:netrw_dirhist_3='/home/edu/.vim'
+let g:netrw_dirhist_4='/home/edu/.vim/bundle/Vundle.vim'
