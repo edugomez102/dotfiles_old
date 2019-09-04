@@ -1,5 +1,5 @@
  syntax match Brackets display '[(){}\[\]]'
- highlight Brackets ctermfg=135
+ highlight Brackets ctermfg=186
  
  syntax match Operator display ' *->'
  
