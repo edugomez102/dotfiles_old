@@ -1,3 +1,5 @@
+"Movidas del gestor de Plugins Vundle
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -10,11 +12,14 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'wakatime/vim-wakatime'
+"Plugin 'wakatime/vim-wakatime'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Colors
 colorscheme codedark
