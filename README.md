@@ -1,4 +1,4 @@
-# con Vim a reventar
+# con Vim a *REVENTAR*
 ## Pendiente instalar snippets pero es que es una movida	
 ## Installation
 	cd 
