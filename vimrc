@@ -26,8 +26,6 @@ colorscheme codedark
 syntax enable
 
 " Spaces Tabs
-"set expandtab
-"filetype plugin indent on
 set smartindent
 set smarttab "no seguro de esto e
 " show existing tab with 4 spaces width
@@ -59,6 +57,11 @@ set smartcase
 
 " Buffer options
 set hid
+
+" Movida con indentar comments, esto pasaba por el filetype pluginrindent 
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+"para un solo uso seria con--> :set formatoptions-=cro
+
 " Netrw options
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
