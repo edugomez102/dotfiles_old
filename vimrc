@@ -12,7 +12,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-"Plugin 'wakatime/vim-wakatime'
+Plugin 'wakatime/vim-wakatime'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -122,8 +122,11 @@ let g:cpp_class_decl_highlight = 1
 let java_highlight_functions=1 
 let java_highlight_java_lang_ids=1 
 
-" Ignore compiled files
-set wildignore=*.o,*~,*.pyc,*.class
+" Ignore wildmenu
+set wildignore=*.o,*~,*.pyc,*.class,.wakatime-project
+" Ignore netrw 
+let g:netrw_list_hide= '.*\.swp$,.*\.o,.wakatime-project,.swp'
+
 "poner extension archivo compilado
 if has("win16") || has("win32")
     set wildignore+=.git\*,.hg\*,.svn\*
