@@ -1,0 +1,84 @@
+global !p
+def junit(snip):
+	if snip.opt("g:ultisnips_java_junit", "") == "3":
+		snip += ""
+	else:
+		snip.rv += "@Test\n\t"
+
+def nl(snip):
+	if snip.opt("g:ultisnips_java_brace_style", "") == "nl":
+		snip += ""
+	else:
+		snip.rv += " "
+def getArgs(group):
+	import re
+	word = re.compile('[a-zA-Z0-9><.]+ \w+')
+	return [i.split(" ") for i in word.findall(group) ]
+
+def camel(word):
+	if not word: return ''
+	return word[0].upper() + word[1:]
+
+def mixedCase(word):
+	if not word: return ''
+	return word[0].lower() + word[1:]
+
+endglobal
+
+snippet for "for" b
+for ($1; $2; $3)`!p nl(snip)`{
+	$0
+}
+endsnippet
+
+snippet fore "for (each)" b
+for ($1 : $2)`!p nl(snip)`{
+	$0
+}
+endsnippet
+
+snippet if "if" b
+if ($1)`!p nl(snip)`{
+	$0${VISUAL}
+}
+endsnippet
+
+snippet sw "switch" b
+switch ($1)`!p nl(snip)`{
+	case $2: $0
+}
+endsnippet
+
+
+snippet pr "private" b
+private $0
+endsnippet
+
+snippet pu "public" b
+public $0
+endsnippet
+
+snippet re "return" b
+return $0
+endsnippet
+
+snippet st "static"
+static $0
+endsnippet
+
+snippet br "break"
+break;
+endsnippet
+
+snippet pa "package" b
+package $0
+endsnippet
+
+snippet p "print" b
+System.out.print($1);$0
+endsnippet
+
+snippet pl "println"  b
+System.out.println($1);$0
+endsnippet
+
