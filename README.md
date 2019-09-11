@@ -5,7 +5,7 @@
 	mv dotfiles .vim
 ## Notas
 - Al final he instalado Vundle como gestor de plugins pero esto sigue siendo Vim vanilla, vale?
-- Pendiente instalar snippets pero es que es una movida	
+- Snippets con UltiSnips al final
 ## Wakatime que le pasa
 está instalado el plugin de wakatime 
 basta con darle a <ESQ> cada vez que entres a vim para ignorarlo
