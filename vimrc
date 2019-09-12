@@ -86,6 +86,7 @@ nmap <leader>w :w!<cr>
 " Remaps con <leader>
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
+map <leader>k :e#<cr>
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
