@@ -76,6 +76,12 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+let g:netrw_fastbrowse = 0
+" let g:netrw_winsize = 21
+ "para cerrar despues de elegir
+let g:netrw_browse_split = 0
+ "al darle a la v
+let g:netrw_altv = 1
 
 " With a MAP LEADER it's possible to do extra key combinations
 let mapleader = ","
@@ -107,7 +113,7 @@ map <leader>tt :tabnext<cr>
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/<cr>
 
 " Remaps propios
-map <leader>e :Explore<cr>
+map <leader>e :21Lex<cr>
 map <leader>qa :qall<cr>
 map <leader>db :WakaTimeToday<cr>
 
@@ -136,7 +142,8 @@ let java_highlight_java_lang_ids=1
 " Ignore wildmenu
 set wildignore=*.o,*~,*.pyc,*.class,.wakatime-project
 " Ignore netrw 
-let g:netrw_list_hide= '.*\.swp$,.*\.o,.wakatime-project,.swp'
+let g:netrw_list_hide = '.*\.swp$,.*\.o,.wakatime-project,.swp'
+let g:netrw_hide = 1
 
 "poner extension archivo compilado
 if has("win16") || has("win32")
