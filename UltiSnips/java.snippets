@@ -26,29 +26,58 @@ def mixedCase(word):
 endglobal
 
 snippet for "for" b
-for($1; $2; $3)`!p nl(snip)`{
+for($1; $2; $3){
 	$0
 }
 endsnippet
 
+snippet fori "for loop (for)"
+for(int ${1:i} = ${2:0}; $1 ${3:< count}; ${4:$1}${5:++}){
+	${VISUAL}$0
+}
+endsnippet
+
 snippet fore "for (each)" b
-for ($1 : $2)`!p nl(snip)`{
+for ($1 : $2){
+	$0
+}
+endsnippet
+
+snippet dow "Do While" b
+do{
+	$1
+}while($0);
+endsnippet
+
+snippet while "while" b
+while($1){
 	$0
 }
 endsnippet
 
 snippet if "if" b
-if($1)`!p nl(snip)`{
+if($1){
 	$0${VISUAL}
 }
 endsnippet
 
-snippet sw "switch" b
-switch ($1)`!p nl(snip)`{
-	case $2: $0
+snippet eli "else if" b
+else if($1){
+	$0
 }
 endsnippet
 
+snippet else "else" b
+else{
+	$0
+}
+endsnippet
+
+snippet sw "switch" b
+switch ($1){
+	case $2: $0
+}
+endsnippet
 
 snippet pr "private" b
 private $0
@@ -82,3 +111,18 @@ snippet pl "println"  b
 System.out.println($1);$0
 endsnippet
 
+snippet fun "function" b
+${1:void} ${2:function_name}($3){
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fund "function declaration" b
+${1:void} ${2:function_name}($3);
+endsnippet
+
+snippet main "main" b
+public static void main(String[] args){
+	$0
+}
+endsnippet
