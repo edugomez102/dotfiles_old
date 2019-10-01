@@ -126,3 +126,38 @@ public static void main(String[] args){
 	$0
 }
 endsnippet
+
+snippet class "class" b
+${1:public} class ${2:class_name}{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet arl "ArrayList"
+ArrayList<$1>$0
+endsnippet
+
+snippet im "import"  b
+import ${1:java}.${2:util}.$0;
+endsnippet
+
+snippet try "try/catch" b
+try {
+	$1${VISUAL}
+} catch(${2:Exception} ${3:e}){
+	${4:e.printStackTrace();}
+}
+endsnippet
+
+snippet m  "method" b
+${1:public} ${2:void} ${3:method}($4) {
+	$0
+}
+endsnippet
+
+snippet ca "catch" b
+catch (${1:Exception} ${2:e})`!p nl(snip)`{
+	$0
+}
+endsnippet
+
