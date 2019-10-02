@@ -155,6 +155,12 @@ set wildignore=*.o,*~,*.pyc,*.class,.wakatime-project,*.swo
 let g:netrw_list_hide = '.*\.swp$,.*\.o,.wakatime-project,.swp, *.class,*.swo'
 let g:netrw_hide = 1
 
+"Configuracion de folds
+set foldmethod=indent   
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+
 "poner extension archivo compilado
 if has("win16") || has("win32")
     set wildignore+=.git\*,.hg\*,.svn\*

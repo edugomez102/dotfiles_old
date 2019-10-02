@@ -111,6 +111,10 @@ snippet pl "println"  b
 System.out.println($1);$0
 endsnippet
 
+snippet pl" "println"  b
+System.out.println("$1");$0
+endsnippet
+
 snippet fun "function" b
 ${1:void} ${2:function_name}($3){
 	${VISUAL}$0
