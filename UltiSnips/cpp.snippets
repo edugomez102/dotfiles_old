@@ -149,12 +149,16 @@ endsnippet
 snippet cl "class .. (class)"
 class ${1:`!p snip.rv = snip.basename or "name"`}
 {
-public:
-	${1/(\w+).*/$1/} (${2:arguments});
-	virtual ~${1/(\w+).*/$1/} ();
+	private:
+		${0:/* data */}
+	public:
+		${1/(\w+).*/$1/} (${2:arguments});
+		${1/(\w+).*/$1/}(const ${1/(\w+).*/$1/} &);
+		~${1/(\w+).*/$1/} ();
+		${1/(\w+).*/$1/} & operator=(const ${1/(\w+).*/$1/} &);
+	
+	friend ostream & operator<<(ostream &, const ${1/(\w+).*/$1/} &);
 
-private:
-	${0:/* data */}
 };
 endsnippet
 
@@ -184,6 +188,10 @@ snippet head "File Header" b
 * Description:      ${4:${VISUAL}}
 *****************************************************************************/
 ${0}
+endsnippet
+
+snippet todo "todo" b
+//TODO: ${1:desc} `!v strftime("%c")`
 endsnippet
 
 post_jump "if snip.tabstop == 0 : split_line(snip.tabstops[4].current_text)"
