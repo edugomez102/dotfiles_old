@@ -46,12 +46,20 @@ set shiftwidth=4
 "set expandtab
 
 " UI Config
-set number
 set wildmenu
 set showcmd
 set cursorline
 set showmatch 
 set title
+
+"Movida con los numeros
+set number relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 " move vertically by visual line
 nnoremap j gj
@@ -118,6 +126,9 @@ map <leader>qa :qall<cr>
 map <leader>db :WakaTimeToday<cr>
 map <leader>qs :mksession!<cr>
 nmap <cr> o<Esc>
+
+nnoremap <C-J> 10j
+nnoremap <C-k> 10k
 
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif

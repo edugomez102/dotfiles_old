@@ -146,15 +146,15 @@ int main(int argc, char *argv[]){
 }
 endsnippet
 
-snippet cl "class .. (class)"
+snippet classd "class .. (class)"
 class ${1:`!p snip.rv = snip.basename or "name"`}
 {
 	private:
 		${0:/* data */}
 	public:
-		${1/(\w+).*/$1/} (${2:arguments});
+		${1/(\w+).*/$1/}(${2:arguments});
 		${1/(\w+).*/$1/}(const ${1/(\w+).*/$1/} &);
-		~${1/(\w+).*/$1/} ();
+		~${1/(\w+).*/$1/}();
 		${1/(\w+).*/$1/} & operator=(const ${1/(\w+).*/$1/} &);
 	
 	friend ostream & operator<<(ostream &, const ${1/(\w+).*/$1/} &);
@@ -220,8 +220,16 @@ endsnippet
 snippet classc "class canonical" b
 ${1:`!p snip.rv = snip.basename or "name"`}::${1/(\w+).*/$1/}(){
 }
-${1/(\w+).*/$1/}::${1/(\w+).*/$1/}(argumentos){
+${1/(\w+).*/$1/}::${1/(\w+).*/$1/}($2){
+	`!p
+# args = get_args(t[2])
+# if args:
+# 	for arg in args:
+# 		snip.rv += '\n' + '\t ' + arg + ' - TODO'
+# snip << 2
+# `
 }
+
 ${1/(\w+).*/$1/}::${1/(\w+).*/$1/}(const ${1/(\w+).*/$1/} &t){
 }
 ${1/(\w+).*/$1/}::~${1/(\w+).*/$1/}(){
