@@ -24,6 +24,8 @@ let g:UltiSnipsEditSplit="vertical"
 
 Plugin 'wakatime/vim-wakatime'
 
+Plugin 'qpkorr/vim-bufkill'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

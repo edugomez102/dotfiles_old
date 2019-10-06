@@ -99,6 +99,9 @@ endsnippet
 snippet br "break"
 break;
 endsnippet
+snippet vec "vector" i
+vector<$1>$0
+endsnippet
 
 snippet iiun "include & using"
 #include <iostream>
@@ -107,14 +110,20 @@ using namespace std;
 $0
 endsnippet
 
-snippet incl "include"
-#include <$1>
+snippet define "ifndef define ytal" b
+#ifndef ${1/(\w+).*/\U$0\E/}_h
+//${1:`!p snip.rv = snip.basename or "name"`}_h 
+#define ${1/(\w+).*/\U$0\E/}_h
 $0
+#endif
+endsnippet
+
+snippet incl "include"
+#include <$1>$0
 endsnippet
 
 snippet incl" "include comilla"
-#include "$1"
-$0
+#include "$1"$0
 endsnippet
 
 snippet col "cout+endl" b
@@ -130,7 +139,7 @@ cin >> $0;
 endsnippet
 
 snippet fun "function" b
-${1:void} ${2:function_name}($3){
+${1:void} `!p snip.rv = snip.basename or "name"`::${3:function_name}($4){
 	${VISUAL}$0
 }
 endsnippet
@@ -234,7 +243,9 @@ ${1/(\w+).*/$1/}::${1/(\w+).*/$1/}(const ${1/(\w+).*/$1/} &t){
 }
 ${1/(\w+).*/$1/}::~${1/(\w+).*/$1/}(){
 }
-${1/(\w+).*/$1/} & ${1/(\w+).*/$1/}::operator(const ${1/(\w+).*/$1/} &t){
+${1/(\w+).*/$1/} & ${1/(\w+).*/$1/}::operator=(const ${1/(\w+).*/$1/} &t){
+	if(this!=&t){
+	}
 	return *this;
 }
 ostream & operator<<(ostream &os, const ${1/(\w+).*/$1/} &c){
