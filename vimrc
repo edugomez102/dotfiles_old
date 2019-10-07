@@ -127,14 +127,14 @@ map <leader>ee :19Lex<cr>
 map <leader>qa :qall<cr>
 map <leader>db :WakaTimeToday<cr>
 map <leader>qs :mksession!<cr>
-map <leader>ss :split ./
-map <leader>vs :vsplit ./
+map <leader>ss :split ./**/
+map <leader>vs :vsplit ./**/
 nmap <cr> o<Esc>
 
 nnoremap <C-J> 10j
 nnoremap <C-k> 10k
 
-nnoremap <C-p> :find ./
+nnoremap <C-p> :find ./**/
 map Q <Nop>
 
 " Return to last edit position when opening files (You want this!)
