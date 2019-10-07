@@ -108,7 +108,7 @@ map <leader>k :e#<cr>
 map <silent> <leader><cr> :noh<cr>
 " Close the current buffer
 map <leader>j :ls<cr>
-map <leader>bd :bdelete<cr>
+map <leader>bd :BD<cr>
 ":tabclose<cr>gT
 
 " Useful mappings for managing tabs
@@ -123,14 +123,19 @@ map <leader>tt :tabnext<cr>
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/<cr>
 
 " Remaps propios
-map <leader>e :19Lex<cr>
+map <leader>ee :19Lex<cr>
 map <leader>qa :qall<cr>
 map <leader>db :WakaTimeToday<cr>
 map <leader>qs :mksession!<cr>
+map <leader>ss :split ./
+map <leader>vs :vsplit ./
 nmap <cr> o<Esc>
 
 nnoremap <C-J> 10j
 nnoremap <C-k> 10k
+
+nnoremap <C-p> :find ./
+map Q <Nop>
 
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
