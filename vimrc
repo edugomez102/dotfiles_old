@@ -49,6 +49,7 @@ set shiftwidth=4
 
 " UI Config
 set wildmenu
+set wildignorecase
 set showcmd
 set cursorline
 set showmatch 
@@ -102,12 +103,11 @@ nmap <leader>w :w!<cr>
 " Remaps con <leader>
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
-map <leader>k :e#<cr>
+nnoremap <leader>j :find ./**/
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 " Close the current buffer
-map <leader>j :ls<cr>
 map <leader>bd :BD<cr>
 ":tabclose<cr>gT
 
@@ -134,7 +134,7 @@ nmap <cr> o<Esc>
 nnoremap <C-J> 10j
 nnoremap <C-k> 10k
 
-nnoremap <C-p> :find ./**/
+nnoremap <C-p> :ls<cr>:b<Space>
 map Q <Nop>
 
 " Return to last edit position when opening files (You want this!)
