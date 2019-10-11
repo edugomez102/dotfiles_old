@@ -136,6 +136,7 @@ nnoremap <C-k> 10k
 
 nnoremap <C-p> :ls<cr>:b<Space>
 map Q <Nop>
+nnoremap <S-s> $s
 
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
