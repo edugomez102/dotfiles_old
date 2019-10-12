@@ -38,7 +38,7 @@ colorscheme codedark
 syntax enable
 
 " Spaces Tabs
-set smartindent
+" set smartindent
 set smarttab "no seguro de esto e
 " show existing tab with 4 spaces width
 set tabstop=4
@@ -137,6 +137,11 @@ nnoremap <C-k> 10k
 nnoremap <C-p> :ls<cr>:b<Space>
 map Q <Nop>
 nnoremap <S-s> $s
+
+"Movidas con el indent
+map <F7> gg=G<C-o><C-o>
+nnoremap p p=`]
+nnoremap P P=`]
 
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
