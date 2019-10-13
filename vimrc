@@ -24,7 +24,8 @@ let g:UltiSnipsEditSplit="vertical"
 
 Plugin 'wakatime/vim-wakatime'
 
-Plugin 'qpkorr/vim-bufkill'
+" Plugin 'qpkorr/vim-bufkill'
+Plugin 'fholgado/minibufexpl.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -79,6 +80,9 @@ set smartcase
 " Buffer options
 set hid
 
+" MBE settings
+let g:miniBufExplMaxSize = 2
+
 " Movida con indentar comments, esto pasaba por el filetype pluginrindent 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 "para un solo uso seria con--> :set formatoptions-=cro
@@ -97,7 +101,6 @@ let g:netrw_altv = 1
 " With a MAP LEADER it's possible to do extra key combinations
 let mapleader = ","
 
-" like <leader>w saves the current file
 " Fast saving
 nmap <leader>w :w!<cr>
 " Remaps con <leader>
@@ -108,7 +111,7 @@ nnoremap <leader>j :find ./**/
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 " Close the current buffer
-map <leader>bd :BD<cr>
+map <leader>bd :MBEbd<cr>
 ":tabclose<cr>gT
 
 " Useful mappings for managing tabs
@@ -119,11 +122,10 @@ map <leader>tm :tabmove<cr>
 map <leader>tt :tabnext<cr>
 
 " Opens a new tab with the current buffer's path
-" Super useful when editing files in the same directory
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/<cr>
 
 " Remaps propios
-map <leader>ee :19Lex<cr>
+map <leader>ee :16Lex<cr>
 map <leader>qa :qall<cr>
 map <leader>db :WakaTimeToday<cr>
 map <leader>qs :mksession!<cr>
@@ -137,6 +139,12 @@ nnoremap <C-k> 10k
 nnoremap <C-p> :ls<cr>:b<Space>
 map Q <Nop>
 nnoremap <S-s> $s
+
+" Remaps para el MBE
+map <leader>f :MBEFocus<cr>
+map <leader>t :MBEToggle<cr>
+map <leader>c :MBEClose<cr>
+map <leader>u :MBEToggleMRU<cr>
 
 "Movidas con el indent
 map <F7> gg=G<C-o><C-o>
