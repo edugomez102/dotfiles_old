@@ -188,6 +188,7 @@ set foldlevel=2
 "Comfiguracion complete
 set completeopt+=noselect,menuone,longest
 set omnifunc=syntaxcomplete#Complete
+inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
 
 "poner extension archivo compilado
 if has("win16") || has("win32")
