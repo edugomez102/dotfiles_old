@@ -185,6 +185,10 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=2
 
+"Comfiguracion complete
+set completeopt+=noselect,menuone,longest
+set omnifunc=syntaxcomplete#Complete
+
 "poner extension archivo compilado
 if has("win16") || has("win32")
     set wildignore+=.git\*,.hg\*,.svn\*
