@@ -25,4 +25,7 @@ syntax match _memberFunc "\.\s*\w\+\s*(\@=" contains=_Operator,_Paren
 " colors
 highlight _memberFunc ctermfg=117
 
+syn match cppFunction "\<\k\+\ze("
+hi link cppjavaFunction Function
+highlight cppFunction ctermfg=117
 

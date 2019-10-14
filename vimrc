@@ -133,6 +133,7 @@ map <leader>ss :split ./**/
 map <leader>vs :vsplit ./**/
 nmap <cr> o<Esc>
 map ñ <C-^>
+map <C-d> "_d
 
 nnoremap <C-J> 10j
 nnoremap <C-k> 10k
