@@ -132,6 +132,7 @@ map <leader>qs :mksession!<cr>
 map <leader>ss :split ./**/
 map <leader>vs :vsplit ./**/
 nmap <cr> o<Esc>
+map ñ <C-^>
 
 nnoremap <C-J> 10j
 nnoremap <C-k> 10k
