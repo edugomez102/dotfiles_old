@@ -25,7 +25,7 @@ highlight javaLenguage ctermfg=176
 " highlight Function ctermfg=161
 
 " highlight operators
-syntax match _Operator "[-+&|<>=!~*%&^]"
+syntax match _Operator "[-+&|<>=!~.,:;*%&^]"
 highlig _Operator ctermfg=147
 
 " highlight methods

@@ -15,7 +15,8 @@ syntax match Final '\<[A-Z][A-Z0-9]\+\%(_[A-Z0-9]\+\)*\>'
 highlight Final ctermfg=536
 
 " highlight operators
-syntax match _Operator "[-+&|<>=!~*%&^]"
+syntax match _Operator "[-+&|<>=!~.,:;*%&^]"
+" syntax match _Operator "[-+&|<>=!\/~.,;:*%&^?()\[\]{}]"
 highlig _Operator ctermfg=147
 
 " highlight methods
