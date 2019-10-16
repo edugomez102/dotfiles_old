@@ -77,6 +77,10 @@ set hlsearch
 set incsearch
 set smartcase
 
+" Split right
+set splitright
+" set splitbelow
+
 " Buffer options
 set hid
 
@@ -129,8 +133,8 @@ map <leader>ee :16Lex<cr>
 map <leader>qa :qall<cr>
 map <leader>db :WakaTimeToday<cr>
 map <leader>qs :mksession!<cr>
-map <leader>ss :split ./**/
-map <leader>vs :vsplit ./**/
+" map <leader>ss :split ./**/
+" map <leader>vs :vsplit ./**/
 nmap <cr> o<Esc>
 map ñ <C-^>
 map <C-d> "_d
@@ -141,6 +145,9 @@ nnoremap <C-k> 10k
 nnoremap <C-p> :ls<cr>:b<Space>
 map Q <Nop>
 nnoremap <S-s> $s
+
+map <leader>v :vs<cr>
+map <leader>s :sp<cr>
 
 " Remaps para el MBE
 map <leader>f :MBEFocus<cr>
