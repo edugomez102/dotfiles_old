@@ -55,14 +55,17 @@ set showcmd
 set cursorline
 set showmatch 
 set title
+" Wrap Config
+" set wrap
+set breakindent
 
 "Movida con los numeros
 set number relativenumber
 
 augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+	autocmd!
+	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+	autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
 " move vertically by visual line
@@ -97,9 +100,9 @@ let g:netrw_liststyle = 3
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 let g:netrw_fastbrowse = 0
 " let g:netrw_winsize = 21
- "para cerrar despues de elegir
+"para cerrar despues de elegir
 let g:netrw_browse_split = 0
- "al darle a la v
+"al darle a la v
 let g:netrw_altv = 1
 
 " With a MAP LEADER it's possible to do extra key combinations
@@ -197,21 +200,26 @@ let g:netrw_list_hide = '.*\.swp$,.*\.o,.wakatime-project,.swp, *.class,*.swo'
 let g:netrw_hide = 1
 
 "Configuracion de folds
-set foldmethod=indent   
-set foldnestmax=10
+set foldmethod=syntax   
+" set foldnestmax=10
 set nofoldenable
-set foldlevel=2
+" set foldlevel=2
+hi Folded ctermfg=230
+hi Folded ctermbg=59
 
 "Comfiguracion complete
 set completeopt+=noselect,menuone,longest
 set omnifunc=syntaxcomplete#Complete
 inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
-
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+"
 "poner extension archivo compilado
 if has("win16") || has("win32")
-    set wildignore+=.git\*,.hg\*,.svn\*
+	set wildignore+=.git\*,.hg\*,.svn\*
 else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+	set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
 
 " No annoying sound on errors
