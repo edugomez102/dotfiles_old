@@ -26,6 +26,8 @@ Plugin 'wakatime/vim-wakatime'
 
 " Plugin 'qpkorr/vim-bufkill'
 Plugin 'fholgado/minibufexpl.vim'
+" Para que no se abra solo al iniciar
+let g:miniBufExplorerAutoStart = 0
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -144,6 +146,7 @@ map <C-d> "_d
 
 nnoremap <C-J> 10j
 nnoremap <C-k> 10k
+map ; A;<esc>
 
 nnoremap <C-p> :ls<cr>:b<Space>
 map Q <Nop>
@@ -151,6 +154,8 @@ nnoremap <S-s> $s
 
 map <leader>v :vs<cr>
 map <leader>s :sp<cr>
+
+map <F8> :set foldmethod=syntax<cr>
 
 " Remaps para el MBE
 map <leader>f :MBEFocus<cr>
@@ -206,6 +211,12 @@ set nofoldenable
 " set foldlevel=2
 hi Folded ctermfg=230
 hi Folded ctermbg=59
+" movida para guardar/cargar vistas en archivos
+augroup remember_folds
+  autocmd!
+    autocmd BufWinLeave * mkview
+	  autocmd BufWinEnter * silent! loadview
+  augroup END
 
 "Comfiguracion complete
 set completeopt+=noselect,menuone,longest
@@ -227,3 +238,23 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
+
+" Funcion para buscar en todos los buffers
+" con :cw aparece ventana con resultados
+" siguiente con :cn, anterior con :cp
+function! BuffersList()
+  let all = range(0, bufnr('$'))
+  let res = []
+  for b in all
+    if buflisted(b)
+      call add(res, bufname(b))
+    endif
+  endfor
+  return res
+endfunction
+
+function! GrepBuffers (expression)
+  exec 'vimgrep/'.a:expression.'/ '.join(BuffersList())
+endfunction
+
+command! -nargs=+ GrepBufs call GrepBuffers(<q-args>)
