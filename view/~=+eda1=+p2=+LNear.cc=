@@ -112,24 +112,44 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-10
-normal! zc
-17
-normal! zc
-23
-normal! zc
-28
+22
 normal! zo
-28
-normal! zc
-34
+58
 normal! zo
-let s:l = 48 - ((47 * winheight(0) + 21) / 43)
+64
+normal! zo
+77
+normal! zo
+84
+normal! zo
+87
+normal! zo
+88
+normal! zo
+105
+normal! zo
+116
+normal! zo
+121
+normal! zo
+122
+normal! zo
+128
+normal! zo
+116
+normal! zo
+121
+normal! zo
+122
+normal! zo
+128
+normal! zo
+let s:l = 108 - ((31 * winheight(0) + 21) / 42)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-48
-normal! 014|
+108
+normal! 09|
 lcd ~/eda1/p2
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost

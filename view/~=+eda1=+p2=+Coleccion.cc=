@@ -79,7 +79,7 @@ setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
 setlocal noreadonly
-setlocal relativenumber
+setlocal norelativenumber
 setlocal norightleft
 setlocal rightleftcmd=search
 setlocal noscrollbind
@@ -132,12 +132,12 @@ normal! zo
 normal! zo
 138
 normal! zo
-let s:l = 91 - ((39 * winheight(0) + 21) / 43)
+let s:l = 4 - ((3 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-91
-normal! 020|
+4
+normal! 0
 lcd ~/eda1/p2
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
