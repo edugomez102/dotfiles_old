@@ -149,7 +149,7 @@ nnoremap <C-k> 10k
 map ; A;<esc>
 
 nnoremap <C-p> :ls<cr>:b<Space>
-map Q <Nop>
+map Q @:
 nnoremap <S-s> $s
 
 map <leader>v :vs<cr>
@@ -212,11 +212,19 @@ set nofoldenable
 hi Folded ctermfg=230
 hi Folded ctermbg=59
 " movida para guardar/cargar vistas en archivos
+" revisar el :h :mkview
 augroup remember_folds
   autocmd!
     autocmd BufWinLeave * mkview
 	  autocmd BufWinEnter * silent! loadview
   augroup END
+
+" augroup QuickNotes
+"     autocmd!
+"     autocmd BufWinLeave *.md execute "mkview! " . expand('<afile>:p:h') . "/." . expand('<afile>:t') . ".view"
+"     autocmd BufWinEnter *.md execute "silent! source " . expand('%:p:h') . "/." . expand('%:t') . ".view"
+" augroup END
+
 
 "Comfiguracion complete
 set completeopt+=noselect,menuone,longest
