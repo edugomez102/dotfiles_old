@@ -212,12 +212,13 @@ set nofoldenable
 hi Folded ctermfg=230
 hi Folded ctermbg=59
 " movida para guardar/cargar vistas en archivos
+" de momento lo quito porque es una movida joder
 " revisar el :h :mkview
-augroup remember_folds
-  autocmd!
-    autocmd BufWinLeave * mkview
-	  autocmd BufWinEnter * silent! loadview
-  augroup END
+" augroup remember_folds
+"   autocmd!
+"     autocmd BufWinLeave * mkview
+" 	  autocmd BufWinEnter * silent! loadview
+"   augroup END
 
 " augroup QuickNotes
 "     autocmd!
