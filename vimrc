@@ -143,6 +143,7 @@ map <leader>qs :mksession!<cr>
 nmap <cr> o<Esc>
 map ñ <C-^>
 map <C-d> "_d
+map :: q:
 
 nnoremap <C-J> 10j
 nnoremap <C-k> 10k
