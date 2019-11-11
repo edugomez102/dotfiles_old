@@ -1,3 +1,7 @@
 snippet date "YYYY-MM-DD" w
 `!v strftime("%d/%m/%Y")`
 endsnippet
+
+snippet preg "Pregunta" b
+pregunta(`!v strftime("%d/%m/%Y")`):$0
+endsnippet

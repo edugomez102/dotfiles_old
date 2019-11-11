@@ -131,7 +131,7 @@ cout << $1 << endl;
 endsnippet
 
 snippet col" "cout+endl" b
-cout << "$1" << endl;
+cout << "$1"$2 << endl;
 endsnippet
 
 snippet ci "cin" b
@@ -201,6 +201,10 @@ endsnippet
 
 snippet todo "todo" b
 //TODO(`!v strftime("%d/%m/%Y")`): ${1:implementar} 
+endsnippet
+
+snippet preg "Pregunta" b
+//Pregunta(`!v strftime("%d/%m/%Y")`):$0
 endsnippet
 
 post_jump "if snip.tabstop == 0 : split_line(snip.tabstops[4].current_text)"
