@@ -28,7 +28,8 @@ Plugin 'wakatime/vim-wakatime'
 Plugin 'fholgado/minibufexpl.vim'
 " Para que no se abra solo al iniciar
 let g:miniBufExplorerAutoStart = 0
-
+Plugin 'kana/vim-textobj-line'
+Plugin 'kana/vim-textobj-user'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
