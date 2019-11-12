@@ -110,12 +110,6 @@ let g:netrw_altv = 1
 " With a MAP LEADER it's possible to do extra key combinations
 let mapleader = ","
 
-" Fast saving
-nmap <leader>w :w!<cr>
-" Remaps con <leader>
-map <leader>l :bnext<cr>
-map <leader>h :bprevious<cr>
-nnoremap <leader>j :find ./**/
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -134,12 +128,18 @@ map <leader>tt :tabnext<cr>
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/<cr>
 
 " Remaps propios
+nmap <leader>w :w!<cr>
+map <leader>l :bnext<cr>
+map <leader>h :bprevious<cr>
+nnoremap <leader>j :find ./**/
+
 map <leader>ee :16Lex<cr>
 map <leader>qa :qall<cr>
 map <leader>db :WakaTimeToday<cr>
 map <leader>qs :mksession!<cr>
-" map <leader>ss :split ./**/
-" map <leader>vs :vsplit ./**/
+ "Espejo hay que empezar una linea antes
+map <leader>rv :g/^/m'<<cr> :noh<cr>
+
 nmap <cr> o<Esc>
 map ñ <C-^>
 map <C-d> "_d
