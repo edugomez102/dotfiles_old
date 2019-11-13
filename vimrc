@@ -269,3 +269,12 @@ function! GrepBuffers (expression)
 endfunction
 
 command! -nargs=+ GrepBufs call GrepBuffers(<q-args>)
+
+" Intento funcion
+function! CoutOff()
+	%s?cout?//cout
+endfunction
+
+function! CoutOn()
+	%s?//cout?cout
+endfunction
