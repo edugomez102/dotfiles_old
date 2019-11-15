@@ -144,11 +144,12 @@ map <leader>rv :g/^/m'<<cr> :noh<cr>
 nmap <cr> o<Esc>
 map ñ <C-^>
 map <C-d> "_d
-map :: q:
+map :: q:i
 
 nnoremap <C-J> 10j
 nnoremap <C-k> 10k
 map ; A;<esc>
+map ´ <C-]>
 
 nnoremap <C-p> :ls<cr>:b<Space>
 map Q @:
