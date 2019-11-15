@@ -267,3 +267,38 @@ ostream & operator<<(ostream &os, const ${1/(\w+).*/$1/} &c){
 //Fin canonicas
 endsnippet
 
+snippet col"black "cout comillas black" b
+cout << "\033[1;30m$1\033[0m"$2 << endl;
+endsnippet
+
+snippet col"red "cout comillas red" b
+cout << "\033[1;31m$1\033[0m"$2 << endl;
+endsnippet
+
+snippet col"green "cout comillas green" b
+cout << "\033[1;32m$1\033[0m"$2 << endl;
+endsnippet
+
+snippet col"yellow "cout comillas yellow" b
+cout << "\033[1;33m$1\033[0m"$2 << endl;
+endsnippet
+
+snippet col"blue "cout comillas blue" b
+cout << "\033[1;34m$1\033[0m"$2 << endl;
+endsnippet
+
+snippet col"magenta "cout comillas magenta" b
+cout << "\033[1;35m$1\033[0m"$2 << endl;
+endsnippet
+
+snippet col"cyan "cout comillas cyan" b
+cout << "\033[1;36m$1\033[0m"$2 << endl;
+endsnippet
+
+snippet col"white "cout comillas white" b
+cout << "\033[1;36m$1\033[0m"$2 << endl;
+endsnippet
+
+snippet col" "cout+endl" b
+cout << "$1"$2 << endl;
+endsnippet
