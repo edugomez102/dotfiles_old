@@ -58,6 +58,7 @@ set showcmd
 set cursorline
 set showmatch 
 set title
+set so=5 "para que el cursor se quede a 5 lineas del borde de la pantalla
 " Wrap Config
 " set wrap
 set breakindent
