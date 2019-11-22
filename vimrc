@@ -79,6 +79,10 @@ nnoremap k gk
 " Performance options
 set lazyredraw
 
+" Cargar archivos al cambiar en disco
+set autoread
+" au CursorHold * checktime  
+
 " Search options
 set hlsearch
 set incsearch
@@ -116,7 +120,7 @@ let mapleader = ","
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 " Close the current buffer
-map <leader>bd :MBEbd<cr>
+map <leader>bd : bp\|bd #<cr>
 ":tabclose<cr>gT
 
 " Useful mappings for managing tabs
