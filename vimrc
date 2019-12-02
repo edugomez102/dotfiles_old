@@ -314,3 +314,14 @@ let g:mucomplete#chains = {}
 " si pongo 'ulti' peta bastante revisar eso
 let g:mucomplete#chains.default = ['c-n', 'omni', 'path', 'keyn', 'tags']
 
+
+" =============================================================================
+" Auto pairs
+" =============================================================================
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
