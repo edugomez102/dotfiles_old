@@ -30,6 +30,9 @@ Plugin 'fholgado/minibufexpl.vim'
 let g:miniBufExplorerAutoStart = 0
 Plugin 'kana/vim-textobj-line'
 Plugin 'kana/vim-textobj-user'
+
+Plugin 'lifepillar/vim-mucomplete'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -236,7 +239,7 @@ hi Folded ctermbg=59
 
 
 "Comfiguracion complete
-set completeopt+=noselect,menuone,longest
+set completeopt+=noselect,menuone,longest,noinsert
 set omnifunc=syntaxcomplete#Complete
 inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
@@ -298,3 +301,16 @@ function! CoutOn()
 	%s?//cout?cout
 endfunction
 command CoutOn call CoutOn()
+
+
+" =============================================================================
+" VIM-MUCOMPLETE
+" =============================================================================
+let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#no_mappings = 1
+
+
+let g:mucomplete#chains = {}
+" si pongo 'ulti' peta bastante revisar eso
+let g:mucomplete#chains.default = ['c-n', 'omni', 'path', 'keyn', 'tags']
+
