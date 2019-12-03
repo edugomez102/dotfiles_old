@@ -33,6 +33,7 @@ Plugin 'kana/vim-textobj-user'
 
 Plugin 'lifepillar/vim-mucomplete'
 
+Plugin 'dhruvasagar/vim-pairify'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -141,6 +142,7 @@ nmap <leader>w :w!<cr>
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
 nnoremap <leader>j :find ./**/
+imap <c-e> <Del>
 
 map <leader>ee :16Lex<cr>
 map <leader>qa :qall<cr>
