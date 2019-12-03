@@ -320,7 +320,7 @@ let g:mucomplete#chains.default = ['c-n', 'omni', 'path', 'keyn', 'tags']
 " =============================================================================
 inoremap " ""<left>
 inoremap ' ''<left>
-inoremap ( ()<left>
+" inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
