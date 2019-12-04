@@ -1,4 +1,4 @@
-# con Vim a *REVENTAR*
+# :s/IDE/Vim/g
 ## Installation
 	cd 
 	git clone https://github.com/edugomez102/dotfiles
