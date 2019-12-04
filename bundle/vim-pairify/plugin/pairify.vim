@@ -3,6 +3,7 @@ if exists('g:loaded_pairify')
 endif
 let g:loaded_pairify = 1
 
+
 let g:pairifiers = {
       \ "left": {
       \   "[": "]",
