@@ -1,4 +1,3 @@
-# :s/IDE/Vim/g
 ![alt text](nojoke.png)
 ## Installation
 	cd 
