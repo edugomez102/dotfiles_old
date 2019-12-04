@@ -1,4 +1,5 @@
 # :s/IDE/Vim/g
+![alt text](nojoke.png)
 ## Installation
 	cd 
 	git clone https://github.com/edugomez102/dotfiles
