@@ -117,9 +117,7 @@ let g:netrw_browse_split = 0
 "al darle a la v
 let g:netrw_altv = 1
 
-" With a MAP LEADER it's possible to do extra key combinations
 let mapleader = ","
-
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -304,6 +302,8 @@ function! CoutOn()
 endfunction
 command CoutOn call CoutOn()
 
+" buscar seleccion en visual mode
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 " =============================================================================
 " VIM-MUCOMPLETE
