@@ -1,6 +1,6 @@
 ![alt text](nojoke.png)
 ## Installation
-	cd 
+	cd ~
 	git clone https://github.com/edugomez102/dotfiles
 	mv dotfiles .vim
 ## Mappings
