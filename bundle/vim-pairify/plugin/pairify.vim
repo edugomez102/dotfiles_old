@@ -25,7 +25,7 @@ let g:pairifiers = {
       \}
 
 if !exists('g:pairify_map')
-  let g:pairify_map = "<c-h>"
+  let g:pairify_map = "<s-tab>"
 endif
 
 function! s:is_already_matched(char)
