@@ -3,9 +3,6 @@
 	cd 
 	git clone https://github.com/edugomez102/dotfiles
 	mv dotfiles .vim
-## Notas
-- Al final he instalado Vundle como gestor de plugins pero esto sigue siendo Vim vanilla, vale?
-- Snippets con UltiSnips al final
 ## Mappings
 ### Normal mode
 - `<leader>` is `,`
@@ -18,14 +15,17 @@
 - find in folder `,j`
 - next buffer `,l`
 - previous buffer `,h`
-- opem vim console`::`
-## Plugin mappings Normal node
+- open vim console`::`
+- repeat last console command `Q`
+- change last character in line `S`
+- insert ; at end of line `;`
+### Plugin mappings Normal node
 - toggle line comment `gcc`
 - toggle comment motion `gc{motion}`
 - open MiniBufExplorer `,t`
 ### Insert mode
 - skip close bracket `shift tab` **super useful**  
-(imagine `^` is the cursor) works with )>]}"'
+(imagine `^` is the cursor) works with )>]}"'  
 <pre>
 (foo)    --->  (foo)
     ^	            ^
@@ -34,12 +34,17 @@
 ### Visual mode
 - find selected area `//` 
 
-
-
-## Wakatime que le pasa
-está instalado el plugin de wakatime 
-basta con darle a <ESQ> cada vez que entres a vim para ignorarlo
-si no quieres que aparezca el mensaje que pide la clave de wakatime
-basta con poner un " en el vimrc, que quede tal que asi
-	`"Plugin 'wakatime/vim-wakatime'`
+## Upgraded syntax highlighting
+- java
+- C++
+- C
+## Installed Plugins worth mentioning
+### Ultisnips
+snippets are defined in the Ultisnips/ folder
+- to trigger snippet `tab`
+- jump forward trigger`tab`
+- jump backward trigger`Ctrl h`
+### WakaTime
+code timetracker, account needed, diasble it in vimrc this way(add `"`):  
+`"Plugin 'wakatime/vim-wakatime'`
 
