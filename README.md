@@ -10,7 +10,7 @@
 - `Cntl k ` up 10 lines
 - `Ctrl p` goto buffer(with buffer list)
 - quick save `,w`
-- close all ´,qa`
+- close all `,qa`
 - delete buffer but not window `,bd`
 - find in folder `,j`
 - next buffer `,l`
