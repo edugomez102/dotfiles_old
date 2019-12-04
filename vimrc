@@ -163,9 +163,6 @@ nnoremap <C-p> :ls<cr>:b<Space>
 map Q @:
 nnoremap <S-s> $s
 
-map <leader>v :vs<cr>
-map <leader>s :sp<cr>
-
 map <F8> :set foldmethod=syntax<cr>
 
 " Remaps para el MBE
