@@ -338,10 +338,9 @@ inoremap {;<CR> {<CR>};<ESC>O
 " 	normal xx
 " endif
 
-
 call deoplete#custom#option({
-			\ 'max_list': 10000,
-			\ 'min_pattern_length': 1,
+			\ 'max_list': 7000,
+			\ 'min_pattern_length': 2,
 			\ 'auto_preview': v:true,
 			\ 'smart_case': v:true,
 			\ 'skip_multibyte': v:true,
