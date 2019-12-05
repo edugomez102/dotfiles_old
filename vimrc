@@ -15,6 +15,14 @@ Plugin 'VundleVim/Vundle.vim'
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
+Plugin 'Shougo/neco-vim'
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
+
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -31,7 +39,7 @@ let g:miniBufExplorerAutoStart = 0
 Plugin 'kana/vim-textobj-line'
 Plugin 'kana/vim-textobj-user'
 
-Plugin 'lifepillar/vim-mucomplete'
+" Plugin 'lifepillar/vim-mucomplete'
 
 Plugin 'dhruvasagar/vim-pairify'
 " All of your Plugins must be added before the following line
@@ -309,9 +317,9 @@ let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#no_mappings = 1
 
 
-let g:mucomplete#chains = {}
+" let g:mucomplete#chains = {}
 " si pongo 'ulti' peta bastante revisar eso
-let g:mucomplete#chains.default = ['c-n', 'omni', 'path', 'keyn', 'tags']
+" let g:mucomplete#chains.default = ['c-n', 'omni', 'path', 'keyn', 'tags']
 
 
 " =============================================================================
@@ -329,3 +337,17 @@ inoremap {;<CR> {<CR>};<ESC>O
 " if nr2char(strgetchar(getline('.')[col('.') - 1:], 0)) == '(' &&  nr2char(strgetchar(getline('.')[col('.') - 1:], 1)) == ')'
 " 	normal xx
 " endif
+
+
+call deoplete#custom#option({
+			\ 'max_list': 10000,
+			\ 'min_pattern_length': 1,
+			\ 'auto_preview': v:true,
+			\ 'smart_case': v:true,
+			\ 'skip_multibyte': v:true,
+			\ 'skip_chars': ['(', ')', '<', '>'],
+			\ })
+
+call deoplete#custom#source('ultisnips',        'rank', 500)
+call deoplete#custom#source('omni',          'rank', 600)
+call deoplete#custom#source('vim',           'rank', 640)
