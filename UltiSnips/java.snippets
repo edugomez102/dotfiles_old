@@ -177,8 +177,22 @@ snippet todo "todo" b
 //TODO(`!v strftime("%d/%m/%Y")`): ${1:implementar} 
 endsnippet
 
+snippet preg "Pregunta" b
+//Pregunta(`!v strftime("%d/%m/%Y")`): ${1:implementar} 
+endsnippet
+
 snippet pcn "public class name" b
 ${1:public} class ${2:`!p snip.rv = snip.basename or "name"`}{
 	${VISUAL}$0
 }
 endsnippet
+
+snippet sleep "sleep" b
+try {
+	Thread.sleep(${1:1000});	
+} catch(Exception e){
+	e.printStackTrace();
+}
+$0
+endsnippet
+
