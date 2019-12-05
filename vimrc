@@ -21,6 +21,8 @@ Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'Shougo/neco-vim'
 
 
+Plugin 'artur-shaik/vim-javacomplete2'
+
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -159,6 +161,7 @@ nmap <cr> o<Esc>
 map ñ <C-^>
 map <C-d> "_d
 map :: q:i
+map <C-h> %x``x
 
 nnoremap <C-J> 10j
 nnoremap <C-k> 10k
@@ -311,14 +314,12 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 " =============================================================================
 " VIM-MUCOMPLETE
 " =============================================================================
-let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#no_mappings = 1
-
+" let g:mucomplete#enable_auto_at_startup = 1
+" let g:mucomplete#no_mappings = 1
 
 " let g:mucomplete#chains = {}
 " si pongo 'ulti' peta bastante revisar eso
 " let g:mucomplete#chains.default = ['c-n', 'omni', 'path', 'keyn', 'tags']
-
 
 " =============================================================================
 " Auto pairs
@@ -331,11 +332,9 @@ inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
-
 " if nr2char(strgetchar(getline('.')[col('.') - 1:], 0)) == '(' &&  nr2char(strgetchar(getline('.')[col('.') - 1:], 1)) == ')'
 " 	normal xx
 " endif
-
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option({
 			\ 'max_list': 7000,
@@ -348,5 +347,25 @@ call deoplete#custom#option({
 			\ })
 
 call deoplete#custom#source('ultisnips',        'rank', 500)
-call deoplete#custom#source('omni',          'rank', 600)
+call deoplete#custom#source('omni',          'rank', 400)
 call deoplete#custom#source('vim',           'rank', 640)
+
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+" call deoplete#custom#option('omni_patterns', {
+" 		\ 'java': '[^. *\t]\.\w*',
+" 		\  'html': ['<', '</', '<[^>]*\s[[:alnum:]-]*']
+" 		\})
+" 		call deoplete#custom#var('omni', 'input_patterns', {
+" 		    \ 'ruby': ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::'],
+" 		    \ 'java': '[^. *\t]\.\w*',
+" 		    \ 'php': '\w+|[^. \t]->\w*|\w+::\w*',
+" 		    \})
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#omni_patterns = {}
+" let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+" let g:deoplete#sources = {}
+" let g:deoplete#sources._ = []
+" let g:deoplete#file#enable_buffer_path = 1
+" if !exists('g:deoplete#omni#input_patterns')
+"     let g:deoplete#omni#input_patterns = {}
+" endif
