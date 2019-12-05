@@ -19,8 +19,6 @@ Plugin 'Shougo/deoplete.nvim'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'Shougo/neco-vim'
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
 
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -338,13 +336,15 @@ inoremap {;<CR> {<CR>};<ESC>O
 " 	normal xx
 " endif
 
+let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option({
 			\ 'max_list': 7000,
-			\ 'min_pattern_length': 2,
+			\ 'min_pattern_length': 1,
 			\ 'auto_preview': v:true,
 			\ 'smart_case': v:true,
 			\ 'skip_multibyte': v:true,
 			\ 'skip_chars': ['(', ')', '<', '>'],
+			\ 'auto_complete:delay' : 30,
 			\ })
 
 call deoplete#custom#source('ultisnips',        'rank', 500)
