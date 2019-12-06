@@ -31,7 +31,7 @@ let g:miniBufExplorerAutoStart = 0
 Plugin 'kana/vim-textobj-line'
 Plugin 'kana/vim-textobj-user'
 
-Plugin 'lifepillar/vim-mucomplete'
+" Plugin 'lifepillar/vim-mucomplete'
 
 Plugin 'dhruvasagar/vim-pairify'
 " All of your Plugins must be added before the following line
@@ -141,6 +141,10 @@ map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
 nnoremap <leader>j :find ./**/
 imap <c-e> <Del>
+map <Space> /
+map <C-@> ?
+map ¡ :noh<cr>
+map º $
 
 map <leader>ee :16Lex<cr>
 map <leader>qa :qall<cr>
@@ -151,8 +155,10 @@ map <leader>rv :g/^/m'<<cr> :noh<cr>
 
 nmap <cr> o<Esc>
 map ñ <C-^>
-map <C-d> "_d
+" map <C-d> "_d
+map K "_ddP
 map :: q:i
+map <C-h> %x``x
 
 nnoremap <C-J> 10j
 nnoremap <C-k> 10k
@@ -305,14 +311,12 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 " =============================================================================
 " VIM-MUCOMPLETE
 " =============================================================================
-let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#no_mappings = 1
+" let g:mucomplete#enable_auto_at_startup = 1
+" let g:mucomplete#no_mappings = 1
 
-
-let g:mucomplete#chains = {}
+" let g:mucomplete#chains = {}
 " si pongo 'ulti' peta bastante revisar eso
-let g:mucomplete#chains.default = ['c-n', 'omni', 'path', 'keyn', 'tags']
-
+" let g:mucomplete#chains.default = ['c-n', 'omni', 'path', 'keyn', 'tags']
 
 " =============================================================================
 " Auto pairs
@@ -325,7 +329,3 @@ inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
-
-" if nr2char(strgetchar(getline('.')[col('.') - 1:], 0)) == '(' &&  nr2char(strgetchar(getline('.')[col('.') - 1:], 1)) == ')'
-" 	normal xx
-" endif
