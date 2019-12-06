@@ -4,11 +4,15 @@
 	git clone https://github.com/edugomez102/dotfiles
 	mv dotfiles .vim
 ## Mappings
+Mappings are meant for spanish keyboards 
 ### Normal mode
 - `<leader>` is `,`
 - `Ctrl j` down 10 lines
 - `Cntl k ` up 10 lines
 - `Ctrl p` goto buffer(with buffer list)
+- `Ctrl ñ` goto last buffer
+- `/` mapped to `Space`
+- `?` mapped to `Ctrl Space`
 - quick save `,w`
 - close all `,qa`
 - delete buffer but not window `,bd`
@@ -32,7 +36,7 @@
 </pre>
 - delete word in cursor `Ctrl e`
 ### Visual mode
-- find selected area `//` 
+- search for selected area `//` 
 
 ## Upgraded syntax highlighting
 - java
