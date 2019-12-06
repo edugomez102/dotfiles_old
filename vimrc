@@ -74,6 +74,9 @@ set so=5 "para que el cursor se quede a 5 lineas del borde de la pantalla
 " Wrap Config
 " set wrap
 set breakindent
+set list
+set listchars=tab:┊\ ,space:•,nbsp:␣,trail:⌁,eol:↲,precedes:«,extends:»
+hi SpecialKey ctermfg=242
 
 "Movida con los numeros
 set number relativenumber
