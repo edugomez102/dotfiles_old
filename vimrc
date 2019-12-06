@@ -76,7 +76,8 @@ set so=5 "para que el cursor se quede a 5 lineas del borde de la pantalla
 set breakindent
 set list
 set listchars=tab:┊\ ,space:•,nbsp:␣,trail:⌁,eol:↲,precedes:«,extends:»
-hi SpecialKey ctermfg=242
+hi SpecialKey ctermfg=238
+hi NonText ctermfg=239
 
 "Movida con los numeros
 set number relativenumber
