@@ -44,6 +44,8 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'dhruvasagar/vim-pairify'
 
 Plugin 'itchyny/vim-gitbranch'
+
+Plugin 'neomake/neomake'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -374,7 +376,12 @@ call deoplete#custom#source('ultisnips',        'rank', 600)
 " call deoplete#custom#source('omni',          'rank', 500)
 call deoplete#custom#source('vim',           'rank', 450)
 
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
+augroup java
+  au!
+  autocmd FileType java setlocal omnifunc=javacomplete#Complete
+  autocmd BufReadPost,BufWritePost *.java :NeomakeFile
+augroup end
+
 " call deoplete#custom#option('omni_patterns', {
 " 		\ 'java': '[^. *\t]\.\w*',
 " 		\  'html': ['<', '</', '<[^>]*\s[[:alnum:]-]*']
