@@ -97,7 +97,8 @@ set lazyredraw
 
 " Cargar archivos al cambiar en disco
 set autoread
-" au CursorHold * checktime  
+" set updatetime=1000
+" au CursorHold,CursorHoldI * checktime
 
 " Search options
 set hlsearch
@@ -275,25 +276,7 @@ set t_vb=
 set tm=500
 
 " Funcion para buscar en todos los buffers
-" con :cw aparece ventana con resultados
-" siguiente con :cn, anterior con :cp
-function! BuffersList()
-  let all = range(0, bufnr('$'))
-  let res = []
-  for b in all
-    if buflisted(b)
-      call add(res, bufname(b))
-    endif
-  endfor
-  return res
-endfunction
-
-function! GrepBuffers (expression)
-  exec 'vimgrep/'.a:expression.'/ '.join(BuffersList())
-endfunction
-
-command! -nargs=+ GrepBufs call GrepBuffers(<q-args>)
-
+" se poidia hacer  con vimgrep <buscar> *"
 " Limpiar la quickFix
 function ClearQuickfixList()
   call setqflist([])
@@ -301,10 +284,6 @@ endfunction
 command! ClearQuickfixList call ClearQuickfixList()
 nmap <leader>cf :ClearQuickfixList<cr>
 
-function LimpiarQF()
-	command! ClearQuickfixList cexpr []
-endfunction
-	
 
 " Intento funcion
 function! CoutOff()
@@ -317,19 +296,46 @@ function! CoutOn()
 endfunction
 command CoutOn call CoutOn()
 
+
+"Movida para cargar todos los buffers"
+function! LoadAll()
+	let ccc = 0
+	while ccc < (bufnr('$'))
+		echom ccc
+		bn
+		e
+		sleep 50m
+		let ccc += 1
+	endwhile
+endfunction
+
 " buscar seleccion en visual mode
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
+" =============================================================================
+" Dictionaries
+" =============================================================================
+set dictionary+=/usr/share/dict/spanish
+set dictionary+=/usr/share/dict/american-english
 
 " =============================================================================
 " VIM-MUCOMPLETE
 " =============================================================================
 " let g:mucomplete#enable_auto_at_startup = 1
 " let g:mucomplete#no_mappings = 1
-
+"
+" let g:mucomplete#minimum_prefix_length = 1
+"
 " let g:mucomplete#chains = {}
-" si pongo 'ulti' peta bastante revisar eso
-" let g:mucomplete#chains.default = ['c-n', 'omni', 'path', 'keyn', 'tags']
-
+" " si pongo 'ulti' peta bastante revisar eso
+" let g:mucomplete#chains.default = ['c-n', 'omni', 'dict', 'keyn', 'tags']
+"
+" 	if has("autocmd") && exists("+omnifunc")
+" 	autocmd Filetype *
+" 			\	if &omnifunc == "" |
+" 			\		setlocal omnifunc=syntaxcomplete#Complete |
+" 			\	endif
+" 	endif
 " =============================================================================
 " Auto pairs
 " =============================================================================
@@ -341,23 +347,21 @@ inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
-" if nr2char(strgetchar(getline('.')[col('.') - 1:], 0)) == '(' &&  nr2char(strgetchar(getline('.')[col('.') - 1:], 1)) == ')'
-" 	normal xx
-" endif
 let g:deoplete#enable_at_startup = 1
+
 call deoplete#custom#option({
-			\ 'max_list': 7000,
+			\ 'auto_complete:delay' : 30,
 			\ 'min_pattern_length': 1,
+			\ 'max_list': 7000,
 			\ 'auto_preview': v:true,
 			\ 'smart_case': v:true,
 			\ 'skip_multibyte': v:true,
-			\ 'skip_chars': ['(', ')', '<', '>'],
-			\ 'auto_complete:delay' : 30,
 			\ })
+			" \ 'skip_chars': ['(', ')', '<', '>'],
 
-call deoplete#custom#source('ultisnips',        'rank', 500)
-call deoplete#custom#source('omni',          'rank', 400)
-call deoplete#custom#source('vim',           'rank', 640)
+call deoplete#custom#source('ultisnips',        'rank', 600)
+" call deoplete#custom#source('omni',          'rank', 500)
+call deoplete#custom#source('vim',           'rank', 450)
 
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 " call deoplete#custom#option('omni_patterns', {
@@ -378,3 +382,4 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 " if !exists('g:deoplete#omni#input_patterns')
 "     let g:deoplete#omni#input_patterns = {}
 " endif
+
