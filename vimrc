@@ -42,6 +42,8 @@ Plugin 'kana/vim-textobj-user'
 " Plugin 'lifepillar/vim-mucomplete'
 
 Plugin 'dhruvasagar/vim-pairify'
+
+Plugin 'itchyny/vim-gitbranch'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -202,6 +204,15 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 set laststatus=2
 set noshowmode
 set ttimeoutlen=50
+let g:lightline = {
+	  \ 'active': {
+	  \   'left': [ [ 'mode', 'paste' ],
+	  \				[ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+	  \ },
+	  \ 'component_function': {
+	  \   'gitbranch': 'gitbranch#name'
+	  \ },
+	  \ }
 
 " Plugin toggle comment
 xnoremap <C-\> gc
