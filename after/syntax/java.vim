@@ -9,6 +9,11 @@ syntax match ClassName display '\.\@<=\*'
 "  highlight link ClassName Identifie
 highlight ClassName ctermfg=73
 
+"  syntax match Title /[A-Z]/
+" syntax match Title /[A-Z]\{2,\}/
+" syntax match Title "/\v<[A-Z]+>"
+"  hi Title ctermfg=3
+
 syntax match Constructor display '\(\(public\|protected\|private\)\s\+\)\@<=\([A-Z][a-z0-9]*\)\+\( *(\)\@='
 highlight link Constructor PreProc
 
