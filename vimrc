@@ -20,7 +20,6 @@ Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'Shougo/neco-vim'
 
-
 Plugin 'artur-shaik/vim-javacomplete2'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -47,6 +46,9 @@ Plugin 'itchyny/vim-gitbranch'
 
 Plugin 'neomake/neomake'
 Plugin 'mhinz/vim-signify'
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 
 " All of your Plugins must be added before the following line
@@ -166,7 +168,8 @@ map <C-@> ?
 map ¡ :noh<cr>
 map º $
 
-map <leader>ee :16Lex<cr>
+map <leader>ee :NERDTreeToggle<cr>
+
 map <leader>qa :qall<cr>
 map <leader>db :WakaTimeToday<cr>
 map <leader>qs :mksession!<cr>
@@ -363,6 +366,17 @@ inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
+" =============================================================================
+" NERDTree
+" =============================================================================
+let NERDTreeQuitOnOpen = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeIgnore = ['\.class$','\.o$']
+
+" =============================================================================
+" Deoplete
+" =============================================================================
 let g:deoplete#enable_at_startup = 1
 
 call deoplete#custom#option({
