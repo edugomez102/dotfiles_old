@@ -47,6 +47,8 @@ Plugin 'itchyny/vim-gitbranch'
 
 Plugin 'neomake/neomake'
 Plugin 'mhinz/vim-signify'
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -102,7 +104,7 @@ set lazyredraw
 
 " Cargar archivos al cambiar en disco
 set autoread
-" set updatetime=1000
+set updatetime=100
 " au CursorHold,CursorHoldI * checktime
 
 " Search options
