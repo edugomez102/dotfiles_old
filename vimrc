@@ -46,6 +46,7 @@ Plugin 'dhruvasagar/vim-pairify'
 Plugin 'itchyny/vim-gitbranch'
 
 Plugin 'neomake/neomake'
+Plugin 'mhinz/vim-signify'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
