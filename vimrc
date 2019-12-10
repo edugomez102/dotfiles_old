@@ -365,6 +365,12 @@ inoremap [ []<left>
 inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
+" =============================================================================
+" Signify
+" =============================================================================
+highlight SignifySignChange ctermfg=yellow guifg=#ffff00 cterm=NONE gui=NONE
+highlight SignifySignAdd    ctermfg=green  guifg=#00ff00 cterm=NONE gui=NONE
+highlight SignifySignDelete ctermfg=89  guifg=#ff0000 cterm=NONE gui=NONE
 
 " =============================================================================
 " NERDTree
