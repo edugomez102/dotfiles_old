@@ -50,6 +50,13 @@ Plugin 'mhinz/vim-signify'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
+Plugin 'chrisbra/Colorizer'
+Plugin 'drmingdrmer/vim-toggle-quickfix'
+
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'tpope/vim-surround'
+
+" Plugin 'justinmk/vim-sneak'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -167,6 +174,8 @@ map <Space> /
 map <C-@> ?
 map ¡ :noh<cr>
 map º $
+map ¡ ]m
+map ¿ [m
 
 map <leader>ee :NERDTreeToggle<cr>
 
@@ -181,11 +190,12 @@ map ñ <C-^>
 " map <C-d> "_d
 map K "_ddP
 map :: q:i
-map <C-h> %x``x
+" borrar parentesis %
+" map <C-h> %x``x
 
 nnoremap <C-J> 10j
 nnoremap <C-k> 10k
-map ; A;<esc>
+" map ; A;<esc>
 map ´ <C-]>
 
 nnoremap <C-p> :ls<cr>:b<Space>
@@ -194,10 +204,13 @@ nnoremap <S-s> $s
 
 map <F8> :set foldmethod=syntax<cr>
 
+
+nmap <leader>c <Plug>window:quickfix:loop
+
 " Remaps para el MBE
 map <leader>f :MBEFocus<cr>
 map <leader>t :MBEToggle<cr>
-map <leader>c :MBEClose<cr>
+" map <leader>c :MBEClose<cr>
 map <leader>u :MBEToggleMRU<cr>
 
 "Movidas con el indent
@@ -358,13 +371,14 @@ set dictionary+=/usr/share/dict/american-english
 " =============================================================================
 " Auto pairs
 " =============================================================================
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
+" inoremap " ""<left>
+" inoremap ' ''<left>
+" inoremap ( ()<left>
+" inoremap [ []<left>
+" inoremap { {}<left>
+" inoremap {<CR> {<CR>}<ESC>O
+" inoremap {;<CR> {<CR>};<ESC>O
+
 " =============================================================================
 " Signify
 " =============================================================================
