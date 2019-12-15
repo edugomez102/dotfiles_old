@@ -56,7 +56,14 @@ Plugin 'drmingdrmer/vim-toggle-quickfix'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-surround'
 
+" Plugin 'kshenoy/vim-signature'
+" Plugin 'jeetsukumaran/vim-markology'
+" Plugin 'zakj/vim-showmarks'
+
 " Plugin 'justinmk/vim-sneak'
+
+"WEB
+Plugin 'ap/vim-css-color'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
