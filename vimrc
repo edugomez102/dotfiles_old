@@ -64,6 +64,8 @@ Plugin 'tpope/vim-surround'
 
 "WEB
 Plugin 'ap/vim-css-color'
+Plugin 'mattn/emmet-vim'
+Plugin 'adelarsq/vim-matchit'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -467,3 +469,5 @@ augroup end
 " \ endif
 " " au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
 " " endif
+
+nnoremap <leader><Space> /\<\><left><left>
