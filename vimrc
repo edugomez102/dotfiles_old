@@ -61,6 +61,7 @@ Plugin 'tpope/vim-surround'
 " Plugin 'zakj/vim-showmarks'
 
 " Plugin 'justinmk/vim-sneak'
+Plugin 'Kazark/vim-SimpleSmoothScroll'
 
 "WEB
 Plugin 'ap/vim-css-color'
@@ -185,6 +186,8 @@ map ¡ :noh<cr>
 map º $
 map ¡ ]m
 map ¿ [m
+"toggle quickfix
+nmap <C-g><C-o> <Plug>window:quickfix:toggle
 
 map <leader>ee :NERDTreeToggle<cr>
 
