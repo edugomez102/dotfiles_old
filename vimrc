@@ -126,9 +126,10 @@ set autoread
 set updatetime=100
 " au CursorHold,CursorHoldI * checktime
 
-" Search options
+" Search options todavia puede haber cambios aqui
 set hlsearch
 set incsearch
+set ignorecase
 set smartcase
 
 " Split right
