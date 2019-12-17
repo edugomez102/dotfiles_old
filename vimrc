@@ -68,6 +68,13 @@ Plugin 'ap/vim-css-color'
 Plugin 'mattn/emmet-vim'
 Plugin 'adelarsq/vim-matchit'
 
+"Improve search
+Plugin 'osyo-manga/vim-anzu'
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)
+nmap # <Plug>(anzu-sharp-with-echo)
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
