@@ -23,6 +23,9 @@ Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'Shougo/neco-vim'
 "java
 Plugin 'artur-shaik/vim-javacomplete2'
+"python
+Plugin 'davidhalter/jedi'
+Plugin 'deoplete-plugins/deoplete-jedi'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
