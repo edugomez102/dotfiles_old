@@ -15,11 +15,13 @@ Plugin 'VundleVim/Vundle.vim'
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 
+" Autocompletition
 Plugin 'Shougo/deoplete.nvim'
+
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'Shougo/neco-vim'
-
+"java
 Plugin 'artur-shaik/vim-javacomplete2'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -485,3 +487,12 @@ augroup end
 " " endif
 
 nnoremap <leader><Space> /\<\><left><left>
+
+" =============================================================================
+" Spellcheck
+" =============================================================================
+" setlocal spell
+set spelllang=en_gb
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+hi clear SpellBad
+hi SpellBad cterm=underline ctermfg=161
