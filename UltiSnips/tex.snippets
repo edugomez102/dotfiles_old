@@ -220,4 +220,62 @@ ${2:${VISUAL:code}}
 
 $0
 endsnippet
+
+# -------------
+
+snippet tarticle "Article template" b
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\selectlanguage{spanish}
+\usepackage{amsmath, amssymb}
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+	\def\svgwidth{\columnwidth}
+	\import{./figures/}{#1.pdf_tex}
+}
+
+\pdfsuppresswarningpagegroup=1
+\title{$1}
+\author{$2}
+\date{${3:\today}}
+\begin{document}
+\maketitle
+	$0
+\end{document}
+endsnippet
+
+snippet tbeamer "beamer template" b
+\documentclass{beamer} 
+\usepackage[utf8]{inputenc}
+
+%Information to be included in the title page:
+\title{$1}
+\author{$2}
+\institute{$3}
+\date{${4:\today}}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Title Sample}
+$0
+\end{frame}
+
+\end{document}
+endsnippet
+
 # vim:ft=snippets:
+
+
+
