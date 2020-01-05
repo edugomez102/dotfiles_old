@@ -1,1 +1,1 @@
-map <leader>w :w!<cr>:Neomake<cr>
+autocmd BufReadPost,BufWritePost *.py :NeomakeFile
