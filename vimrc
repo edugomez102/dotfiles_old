@@ -26,6 +26,9 @@ Plugin 'artur-shaik/vim-javacomplete2'
 "python
 Plugin 'davidhalter/jedi'
 Plugin 'deoplete-plugins/deoplete-jedi'
+"C#
+" Plugin 'OmniSharp/omnisharp-vim'
+" let g:OmniSharp_server_stdio = 1
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
