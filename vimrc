@@ -114,7 +114,7 @@ set showcmd
 set cursorline
 set showmatch 
 set title
-set so=5 "para que el cursor se quede a 5 lineas del borde de la pantalla
+set so=3 "para que el cursor se quede a 5 lineas del borde de la pantalla
 " Wrap Config
 " set wrap
 set breakindent
@@ -321,7 +321,8 @@ hi Folded ctermbg=59
 set completeopt+=noselect,menuone,longest,noinsert
 set omnifunc=syntaxcomplete#Complete
 " inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
-inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+" inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+" inoremap <expr> <CR>       pumvisible() ? "\<C-y><cr>" : "\<CR>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 "
@@ -500,5 +501,6 @@ nnoremap <leader><Space> /\<\><left><left>
 " setlocal spell
 set spelllang=en_gb
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+" inoremap <C-l>l <Esc>u2z=gi
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=161

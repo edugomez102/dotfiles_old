@@ -1,4 +1,4 @@
-snippet date "YYYY-MM-DD" w
+snippet date "DD-MM-YYYY" w
 `!v strftime("%d/%m/%Y")`
 endsnippet
 
@@ -8,3 +8,8 @@ snippet box "Box"
 `!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
 $0
 endsnippet
+
+snippet fecha "Month DD, YYYY" w
+`!v strftime("%A, %_d de %B de %Y")`
+endsnippet
+

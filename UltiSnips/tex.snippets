@@ -131,6 +131,16 @@ snippet subs* "Subsection"
 \subsection*{${1:Subsection}}
 $0
 endsnippet
+
+snippet subss "Subsubsection" 
+\subsubsection{${1:Subsubsection}}
+$0
+endsnippet
+
+snippet subss* "Subsubsection" 
+\subsubsection*{${1:Subsubsection}}
+$0
+endsnippet
 # snippet part "Part" b
 # \part{${1:part name}}%
 # \label{prt:${2:${1/(\w+)|\W+/(?1:\L$0\E:_)/ga}}}
@@ -241,7 +251,7 @@ $0
 endsnippet
 
 # -------------
-snippet bold "bold" i
+snippet bo "bold" i
 \textbf{$0}
 endsnippet
 
@@ -260,8 +270,10 @@ endsnippet
 snippet tarticle "Article template" b
 \documentclass[a4paper]{article}
 
+\usepackage{microtype}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
 \usepackage{textcomp}
 \usepackage[spanish]{babel}
 \selectlanguage{spanish}
@@ -275,6 +287,54 @@ snippet tarticle "Article template" b
 \renewcommand\labelitemii{$\sqbullet$}
 \maketitle
 % \tableofcontents
+$0
+\end{document}
+endsnippet
+
+snippet tearticle "extarticle" b
+\documentclass[a4paper,14pt]{extarticle}
+
+\usepackage[utf8]{inputenc}
+\usepackage{abstract}
+\usepackage{microtype}
+
+\usepackage{hyperref}
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ulined}{}%
+\renewcommand\UrlFont{\color{blue}\sffamily\ulined}
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{textcomp}
+\usepackage[spanish, es-noindentfirst]{babel}
+\selectlanguage{spanish}
+\usepackage{amsmath, amssymb, mathabx}
+\usepackage{enumitem}
+\setlist{itemsep=1pt, topsep=1pt}
+% \set lisa{norteasen}
+\usepackage{multicol}
+\setlength{\abstitleskip}{-28pt}
+% \usepackage[scaled]{helvet}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% \fancyhf{}
+\lhead{\footnotesize EC}
+\rhead{\footnotesize Tema 2}
+% \rfoot{Page \thepage}
+
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\sqbullet$}
+
+\title{\LARGE $1}}
+\author{$2}
+\date{${3:\today}}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
 $0
 \end{document}
 endsnippet
@@ -302,5 +362,66 @@ endsnippet
 
 # vim:ft=snippets:
 
+snippet ¿ "interrogacion" i
+¿$1?$0
+endsnippet
 
+snippet arr "flecha derecha" i
+$\rightarrow$
+endsnippet
 
+snippet arrowl "flecha izquierda" i
+$\leftarrow$
+endsnippet
+
+snippet vsp "vspace" i
+\vspace{${1:5pt}}$0
+endsnippet
+
+snippet color "textcolor" i
+\textcolor{${1:MidnightBlue}}{$0}
+endsnippet
+
+snippet boxs "Simple Box" b
+\fbox{
+	\begin{minipage}{0.95\textwidth}
+	$0
+	\end{minipage}
+}
+endsnippet
+
+snippet cent "centerline" b
+\begin{center}
+$0
+\end{center}
+endsnippet
+
+snippet inc "insertar imagen" b
+\includegraphics[scale=${1:0.5}]{$0}
+endsnippet
+
+snippet rule "linea" b
+\noindent\rule{\textwidth}{1pt}
+endsnippet
+
+snippet com "comillas" i
+\`\`$1''$0
+endsnippet
+
+snippet cha "Chapter" b
+\chapter{${1:fecha}$2}
+$0
+endsnippet
+
+snippet fn "footnote" i
+\footnote{$0}
+endsnippet
+
+snippet boxn "Box Notes" b
+\begin{center}
+	\begin{tcolorbox}[width=0.90\textwidth,title={\sffamily ${1:Notas}}]
+		\sffamily
+		$0
+	\end{tcolorbox}
+\end{center}
+endsnippet
