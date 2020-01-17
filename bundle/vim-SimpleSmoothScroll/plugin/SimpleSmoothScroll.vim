@@ -11,7 +11,7 @@ endif
 let g:loaded_SimpleSmoothScroll_plugin=1
 
 if !exists('g:SimpleSmoothScrollDelay')
-    let g:SimpleSmoothScrollDelay=10
+    let g:SimpleSmoothScrollDelay=3
 endif
 
 let s:save_cpo = &cpo
