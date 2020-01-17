@@ -34,21 +34,20 @@ Plugin 'deoplete-plugins/deoplete-jedi'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<C-H>"
-" If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
 Plugin 'wakatime/vim-wakatime'
 
-" Plugin 'qpkorr/vim-bufkill'
 Plugin 'fholgado/minibufexpl.vim'
-" Para que no se abra solo al iniciar
 let g:miniBufExplorerAutoStart = 0
+
 Plugin 'kana/vim-textobj-line'
 Plugin 'kana/vim-textobj-user'
 
 " Plugin 'lifepillar/vim-mucomplete'
 
 Plugin 'dhruvasagar/vim-pairify'
+" inoremap <S-tab> <ESC>la
 
 Plugin 'itchyny/vim-gitbranch'
 
@@ -71,7 +70,7 @@ Plugin 'tpope/vim-surround'
 " Plugin 'justinmk/vim-sneak'
 Plugin 'Kazark/vim-SimpleSmoothScroll'
 
-"WEB
+"html imrovements
 Plugin 'ap/vim-css-color'
 Plugin 'mattn/emmet-vim'
 Plugin 'adelarsq/vim-matchit'
@@ -90,14 +89,16 @@ let g:tex_flavor = 'latex'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Colors
+" ┌────────┐
+" │ Colors │
+" └────────┘
 colorscheme codedark
 syntax enable
 
-" Spaces Tabs
+" ┌────────────┐
+" │ tab config │
+" └────────────┘
 " set smartindent
 set smarttab "no seguro de esto e
 " show existing tab with 4 spaces width
@@ -107,7 +108,9 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 "set expandtab
 
-" UI Config
+" ┌───────────┐
+" │ UI config │
+" └───────────┘
 set wildmenu
 set wildignorecase
 set showcmd
@@ -123,14 +126,39 @@ set listchars=tab:┊\ ,space:•,nbsp:␣,trail:⌁,eol:↲,precedes:«,extends
 hi SpecialKey ctermfg=238
 hi NonText ctermfg=239
 
-"Movida con los numeros
+" ┌────────────────┐
+" │ Number options │
+" └────────────────┘
 set number relativenumber
-
 augroup numbertoggle
 	autocmd!
 	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
 	autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
+
+" ┌─────────────┐
+" │ File optins │
+" └─────────────┘
+" Cargar archivos al cambiar en disco
+set autoread
+set updatetime=100
+" au CursorHold,CursorHoldI * checktime
+
+" ┌────────────────┐
+" │ Search options │
+" └────────────────┘
+" todavia puede haber cambios aqui
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" ┌──────┐
+" │ Misc │
+" └──────┘
+
+" Return to last edit position when opening files (You want this!)
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " move vertically by visual line
 nnoremap j gj
@@ -138,17 +166,6 @@ nnoremap k gk
 
 " Performance options
 set lazyredraw
-
-" Cargar archivos al cambiar en disco
-set autoread
-set updatetime=100
-" au CursorHold,CursorHoldI * checktime
-
-" Search options todavia puede haber cambios aqui
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
 
 " Split right
 set splitright
@@ -164,7 +181,9 @@ let g:miniBufExplMaxSize = 2
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 "para un solo uso seria con--> :set formatoptions-=cro
 
-" Netrw options
+" ┌───────────────┐
+" │ Netrw options │
+" └───────────────┘
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
@@ -175,8 +194,15 @@ let g:netrw_browse_split = 0
 "al darle a la v
 let g:netrw_altv = 1
 
-let mapleader = ","
+" Ignore netrw 
+let g:netrw_list_hide = '.*\.swp$,.*\.o,.wakatime-project,.swp, *.class,*.swo'
+let g:netrw_hide = 1
 
+" ┌────────┐
+" │ Remaps │
+" └────────┘
+
+let mapleader = ","
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 " Close the current buffer
@@ -235,8 +261,12 @@ nnoremap <S-s> $s
 
 map <F8> :set foldmethod=syntax<cr>
 
-
 nmap <leader>c <Plug>window:quickfix:loop
+
+" buscar seleccion en visual mode
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+" buscar palabra exacta
+nnoremap <leader><Space> /\<\><left><left>
 
 " Remaps para el MBE
 map <leader>f :MBEFocus<cr>
@@ -249,10 +279,13 @@ map <F7> gg=G<C-o><C-o>
 nnoremap p p=`]
 nnoremap P P=`]
 
-" Return to last edit position when opening files (You want this!)
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+" Plugin toggle comment
+xnoremap <C-\> gc
+"autocmd FileType apache setlocal commentstring=#\ %s
 
-" Plugin de la barra esa
+" ┌───────────┐
+" │ Ligthline │
+" └───────────┘
 set laststatus=2
 set noshowmode
 set ttimeoutlen=50
@@ -266,33 +299,15 @@ let g:lightline = {
 	  \ },
 	  \ }
 
-" Plugin toggle comment
-xnoremap <C-\> gc
-"autocmd FileType apache setlocal commentstring=#\ %s
 
-" Plugin de highlight C++
+" Plugin de highlight C++?
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 
-" Default highlight java
-" let java_comment_strings=1 
-let java_highlight_functions=1 
-let java_highlight_java_lang_ids=1 
-let java_highlight_all = 1
-
-" If you are trying this at runtime, you need to reload the syntax file
-" set filetype=java
-" Some more highlights, in addition to those suggested by cmcginty
-highlight link javaScopeDecl Statement
-highlight link javaType Type
-highlight link javaDocTags PreProc
 
 " Ignore wildmenu
 set wildignore=*.o,*~,*.pyc,*.class,.wakatime-project,*.swo
-" Ignore netrw 
-let g:netrw_list_hide = '.*\.swp$,.*\.o,.wakatime-project,.swp, *.class,*.swo'
-let g:netrw_hide = 1
 
 "Configuracion de folds
 set foldmethod=syntax   
@@ -301,6 +316,7 @@ set nofoldenable
 " set foldlevel=2
 hi Folded ctermfg=230
 hi Folded ctermbg=59
+
 " movida para guardar/cargar vistas en archivos
 " de momento lo quito porque es una movida joder
 " revisar el :h :mkview
@@ -333,32 +349,26 @@ else
 	set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
 
-" No annoying sound on errors
+" ┌──────┐
+" │ Soud │
+" └──────┘
 set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
 
+" ┌───────────┐
+" │ Functions │
+" └───────────┘
 " Funcion para buscar en todos los buffers
 " se poidia hacer  con vimgrep <buscar> *"
+
 " Limpiar la quickFix
 function ClearQuickfixList()
   call setqflist([])
 endfunction
 command! ClearQuickfixList call ClearQuickfixList()
 nmap <leader>cf :ClearQuickfixList<cr>
-
-
-" Intento funcion
-function! CoutOff()
-	%s?cout?//cout
-endfunction
-command CoutOff call CoutOff()
-
-function! CoutOn()
-	%s?//cout?cout
-endfunction
-command CoutOn call CoutOn()
 
 
 "Movida para cargar todos los buffers"
@@ -372,9 +382,6 @@ function! LoadAll()
 		let ccc += 1
 	endwhile
 endfunction
-
-" buscar seleccion en visual mode
-vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 " =============================================================================
 " Dictionaries
@@ -417,6 +424,7 @@ set dictionary+=/usr/share/dict/american-english
 highlight SignifySignChange ctermfg=yellow guifg=#ffff00 cterm=NONE gui=NONE
 highlight SignifySignAdd    ctermfg=green  guifg=#00ff00 cterm=NONE gui=NONE
 highlight SignifySignDelete ctermfg=89  guifg=#ff0000 cterm=NONE gui=NONE
+let g:signify_sign_change = '~'
 
 " =============================================================================
 " NERDTree
@@ -457,12 +465,6 @@ call deoplete#custom#source('ultisnips',        'rank', 600)
 " call deoplete#custom#source('omni',          'rank', 500)
 call deoplete#custom#source('vim',           'rank', 450)
 
-augroup java
-  au!
-  autocmd FileType java setlocal omnifunc=javacomplete#Complete
-  autocmd BufReadPost,BufWritePost *.java :NeomakeFile
-augroup end
-
 " call deoplete#custom#option('omni_patterns', {
 " 		\ 'java': '[^. *\t]\.\w*',
 " 		\  'html': ['<', '</', '<[^>]*\s[[:alnum:]-]*']
@@ -492,8 +494,6 @@ augroup end
 " \ endif
 " " au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
 " " endif
-
-nnoremap <leader><Space> /\<\><left><left>
 
 " =============================================================================
 " Spellcheck
