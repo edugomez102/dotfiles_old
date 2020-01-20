@@ -214,14 +214,15 @@ def write_init_body(args, parents, snip):
 	parents = [p.strip() for p in parents.split(",")]
 	parents = [p for p in parents if p != 'object']
 
-	for p in parents:
-		snip += p + ".__init__(self)"
+	# for p in parents:
+	# 	# snip += p + ".__init__(self)"
+	# 	snip += p + "__init__(self)"
 
-	if parents:
-		snip.rv += '\n' + snip.mkline('', indent='')
-
+	# if parents:
+	# 	snip.rv += '\n' + snip.mkline('', indent='')
 	for arg in filter(lambda arg: not arg.is_vararg(), args):
-		snip += "self._%s = %s" % (arg, arg)
+		# snip += "self._%s = %s" % (arg, arg)
+		snip += "self.%s = %s" % (arg, arg)
 
 
 def write_slots_args(args, snip):
@@ -266,26 +267,35 @@ endglobal
 ########################################
 
 snippet class "class with docstrings" b
-class ${1:MyClass}(${2:object}):
-
-	`!p snip.rv = triple_quotes(snip)`${3:Docstring for $1. }`!p snip.rv = triple_quotes(snip)`
-
-	def __init__(self$4):
-		`!p snip.rv = triple_quotes(snip)`${5:TODO: to be defined.}`!p
-snip.rv = ""
+class ${1:MyClass}:
+	def __init__(self$4): `!p
 snip >> 2
-
 args = get_args(t[4])
 
-write_docstring_args(args, snip)
-if args:
-	snip.rv += '\n' + snip.mkline('', indent='')
-	snip += '{0}'.format(triple_quotes(snip))
-
-write_init_body(args, t[2], snip)
-`
+write_init_body(args, t[2], snip) `
 		$0
 endsnippet
+# snippet class "class with docstrings" b
+# class ${1:MyClass}(${2:object}):
+#
+# 	`!p snip.rv = triple_quotes(snip)`${3:Docstring for $1. }`!p snip.rv = triple_quotes(snip)`
+#
+# 	def __init__(self$4):
+# 		`!p snip.rv = triple_quotes(snip)`${5:TODO: to be defined.}`!p
+# snip.rv = ""
+# snip >> 2
+#
+# args = get_args(t[4])
+#
+# write_docstring_args(args, snip)
+# if args:
+# 	snip.rv += '\n' + snip.mkline('', indent='')
+# 	snip += '{0}'.format(triple_quotes(snip))
+#
+# write_init_body(args, t[2], snip)
+# `
+# 		$0
+# endsnippet
 
 
 snippet slotclass "class with slots and docstrings" b
@@ -499,7 +509,7 @@ endsnippet
 
 snippet deff
 def ${1:fname}(`!p snip.rv = vim.eval('indent(".") ? "self" : ""')`$2):
-	$0
+	${3:pass}
 endsnippet
 
 snippet def "function with docstrings" b
@@ -718,6 +728,15 @@ snippet pmdoc "pocoo style module doc string" b
 	:license: ${3:LICENSE_NAME}, see LICENSE for more details.
 """
 $0
+endsnippet
+# ----------------------------------------
+snippet p "print" b
+print($0)
+endsnippet
+
+snippet defg "getter" b
+def get_${1:Something}(self$2):
+	return self.${3:${VISUAL:var}}
 endsnippet
 
 # vim:ft=snippets:

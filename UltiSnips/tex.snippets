@@ -339,26 +339,6 @@ $0
 \end{document}
 endsnippet
 
-snippet tbeamer "beamer template" b
-\documentclass{beamer} 
-\usepackage[utf8]{inputenc}
-
-%Information to be included in the title page:
-\title{$1}
-\author{$2}
-\institute{$3}
-\date{${4:\today}}
-
-\begin{document}
-\frame{\titlepage}
-
-\begin{frame}
-\frametitle{Title Sample}
-$0
-\end{frame}
-
-\end{document}
-endsnippet
 
 # vim:ft=snippets:
 
@@ -425,3 +405,68 @@ snippet boxn "Box Notes" b
 	\end{tcolorbox}
 \end{center}
 endsnippet
+
+
+# Beamer
+# ------------------
+snippet ttbeamer "beamer template" b
+\documentclass[t]{beamer} 
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\selectlanguage{spanish}
+\usetheme{${1:Madrid}}
+% AnnArbor, Antibes, Bergen, Berkeley, Berlin, Boadilla
+% CambridgeUs, Darmstadt, Copenhagen, Warsaw
+\usecolortheme{default}
+
+\usepackage{helvet}
+% bookman, 
+
+	\title[${2:text bottom}]{${3:Title}}
+	\author{${4:Author}}
+	\institute{$5}
+
+	\date{${6:\today}}
+
+	\setbeamertemplate{section in toc}{%
+		{\color{orange!70!black}\inserttocsectionnumber.}~\inserttocsection}
+		\setbeamercolor{subsection in toc}{bg=white,fg=structure}
+		\setbeamertemplate{subsection in toc}{%
+			\hspace{1.2em}{\color{orange}\rule[0.3ex]{3pt}{3pt}}~\inserttocsubsection\par}
+
+\AtBeginSection[]
+{
+	\begin{frame}
+		\frametitle{Índice}
+	\tableofcontents[currentsection]
+		\end{frame}
+}
+\begin{document}
+\frame[c]{\titlepage}
+
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents
+\end{frame}
+
+\section{${7:Start}}
+$0
+\end{document}
+endsnippet
+
+snippet frame "new frame" b
+\begin{frame}
+\frametitle{$2}
+$0
+\end{frame}
+endsnippet
+
+snippet column "beamer columns" b
+\begin{columns}
+	\column{0.45\textwidth}
+	$1
+	\column{0.45\textwidth}
+	$2
+\end{columns}
+endsnippet
+
