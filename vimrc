@@ -15,17 +15,32 @@ Plugin 'VundleVim/Vundle.vim'
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 
+Plugin 'tomtom/tcomment_vim'
 " Autocompletition
 Plugin 'Shougo/deoplete.nvim'
 
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'Shougo/neco-vim'
+
 "java
 Plugin 'artur-shaik/vim-javacomplete2'
+
 "python
 Plugin 'davidhalter/jedi'
 Plugin 'deoplete-plugins/deoplete-jedi'
+Plugin 'Vimjas/vim-python-pep8-indent'
+
+" LaTeX
+Plugin 'lervag/vimtex'
+let g:tex_flavor = 'latex'
+
+" Markdown
+" Plugin 'plasticboy/vim-markdown'
+
+" javascript
+" Plugin 'wokalski/autocomplete-flow'
+
 "C#
 " Plugin 'OmniSharp/omnisharp-vim'
 " let g:OmniSharp_server_stdio = 1
@@ -43,6 +58,10 @@ let g:miniBufExplorerAutoStart = 0
 
 Plugin 'kana/vim-textobj-line'
 Plugin 'kana/vim-textobj-user'
+
+Plugin 'itchyny/lightline.vim'
+
+Plugin 'mengelbrecht/lightline-bufferline'
 
 " Plugin 'lifepillar/vim-mucomplete'
 
@@ -82,8 +101,6 @@ nmap N <Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
 
-Plugin 'lervag/vimtex'
-let g:tex_flavor = 'latex'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -122,9 +139,12 @@ set so=3 "para que el cursor se quede a 5 lineas del borde de la pantalla
 " set wrap
 set breakindent
 set list
-set listchars=tab:┊\ ,space:•,nbsp:␣,trail:⌁,eol:↲,precedes:«,extends:»
+set listchars=tab:┊\ ,space:•,nbsp:␣,trail:⌁,precedes:«,extends:»
+" set listchars+=eol:↲
 hi SpecialKey ctermfg=238
 hi NonText ctermfg=239
+" set fillchars+=vert:\▏
+set fillchars+=vert:\ 
 
 " ┌────────────────┐
 " │ Number options │
@@ -299,6 +319,14 @@ let g:lightline = {
 	  \ },
 	  \ }
 
+" Show buffers on tabline
+" set showtabline=2
+" let g:lightline.tab              = {'active': ['tabnum'], 'inactive': ['tabnum'] }
+" let g:lightline.tabline          = {'left': [['tabs'],['buffers']], 'right': []}
+" let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+" let g:lightline.component_type   = {'buffers': 'tabsel'}
+" autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
+
 
 " Plugin de highlight C++?
 let g:cpp_class_scope_highlight = 1
@@ -307,7 +335,7 @@ let g:cpp_class_decl_highlight = 1
 
 
 " Ignore wildmenu
-set wildignore=*.o,*~,*.pyc,*.class,.wakatime-project,*.swo
+set wildignore=*.o,*~,*.pyc,*.class,.wakatime-project,*.swp
 
 "Configuracion de folds
 set foldmethod=syntax   
@@ -336,6 +364,7 @@ hi Folded ctermbg=59
 "Comfiguracion complete
 set completeopt+=noselect,menuone,longest,noinsert
 set omnifunc=syntaxcomplete#Complete
+set completeopt-=preview
 " inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
 " inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
 " inoremap <expr> <CR>       pumvisible() ? "\<C-y><cr>" : "\<CR>"
@@ -429,10 +458,10 @@ let g:signify_sign_change = '~'
 " =============================================================================
 " NERDTree
 " =============================================================================
+let NERDTreeRespectWildIgnore=1
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-let NERDTreeIgnore = ['\.class$','\.o$']
 let g:NERDTreeIndicatorMapCustom = {
 	\ "Modified"  : "●",
     \ "Staged"    : "✚",
@@ -504,3 +533,16 @@ inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 " inoremap <C-l>l <Esc>u2z=gi
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=161
+
+" ┌──────────┐
+" │ Sessions │
+" └──────────┘
+set ssop-=options    " do not store global and local values in a session
+" set ssop-=folds      " do not store folds
+
+" ┌─────────────────┐
+" │ Persistent undo │
+" └─────────────────┘
+set undodir=~/.vim/undo-dir
+set undofile
+
