@@ -45,7 +45,7 @@ def add_row(snip):
 endglobal
 
 snippet "b(egin)?" "begin{} / end{}" br
-\begin{${1:something}}
+\begin{${1:something}}{${2:}}
 	${0:${VISUAL}}
 \end{$1}
 endsnippet
@@ -463,10 +463,15 @@ endsnippet
 
 snippet column "beamer columns" b
 \begin{columns}
-	\column{0.45\textwidth}
-	$1
-	\column{0.45\textwidth}
-	$2
+	\begin{column}{${1:0.4}\textwidth}
+	$3
+	\end{column}
+	\begin{column}{${2:0.4}\textwidth}
+	$4
+	\end{column}
 \end{columns}
 endsnippet
 
+snippet img "Image" b
+\includegraphics[width=${1:\columnwidth}]{$2}
+endsnippet
