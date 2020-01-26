@@ -17,4 +17,6 @@ highlight link javaDocTags PreProc
 " augroup end
 
 
-nnoremap <buffer> <F5> :!javac *.java && java %:r<cr>
+" nnoremap <buffer> <F5> :!javac *.java && java %:r<cr>
+
+nnoremap <buffer> <F5> :!clear -x && printf "\033[1;32m------------\033[0m\n" && javac *.java && java %:r<cr>
