@@ -267,7 +267,7 @@ snippet emph "emphazise" i
 \emph{$0}
 endsnippet
 
-snippet tarticle "Article template" b
+snippet ttarticle "Article template" b
 \documentclass[a4paper]{article}
 
 \usepackage{microtype}
@@ -291,7 +291,7 @@ $0
 \end{document}
 endsnippet
 
-snippet tearticle "extarticle" b
+snippet ttearticle "extarticle" b
 \documentclass[a4paper,14pt]{extarticle}
 
 \usepackage[utf8]{inputenc}
@@ -474,4 +474,14 @@ endsnippet
 
 snippet img "Image" b
 \includegraphics[width=${1:\columnwidth}]{$2}
+endsnippet
+
+snippet code "code block" b
+\begin{lstlisting}[language=$1${2:,caption=$3}]
+$0
+\end{lstlisting}
+endsnippet
+
+snippet codi "code import" b
+\lstinputlisting[language=$1]{codes/$2}
 endsnippet
