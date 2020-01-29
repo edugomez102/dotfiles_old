@@ -276,8 +276,8 @@ snippet htmll "HTML basic structure with the lang attribute" b
 <html lang="${1:es}">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>${2:`!p snip.rv = snip.basename.replace('-', ' ').capitalize()`}</title>
+		<link rel="stylesheet" href="$2">
+		<title>${3:`!p snip.rv = snip.basename.replace('-', ' ').capitalize()`}</title>
 	</head>
 	<body>
 		${0:body}
