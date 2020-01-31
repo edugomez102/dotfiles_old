@@ -272,7 +272,7 @@ map <leader>rv :g/^/m'<<cr> :noh<cr>
 nnoremap <expr> <CR> &buftype ==# 'quickfix' ? "\<CR>" : 'o<Esc>'
 map ñ <C-^>
 map K <nop>
-map gp "_ddP
+map gp pk"_dd
 map :: q:
 
 nnoremap <C-J> 10j
