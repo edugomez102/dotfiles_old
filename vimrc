@@ -256,7 +256,8 @@ map ¿ [m
 imap <c-e> <Del>
 imap ´ {
 "toggle quickfix
-nmap <C-g><C-o> <Plug>window:quickfix:toggle
+" nmap <C-g><C-o> <Plug>window:quickfix:toggle
+nmap <F3> <Plug>window:quickfix:loop
 
 map <leader>ee :NERDTreeToggle<cr>
 
@@ -266,15 +267,13 @@ map <leader>qs :mksession!<cr>
  "Espejo hay que empezar una linea antes
 map <leader>rv :g/^/m'<<cr> :noh<cr>
 
-nmap <cr> o<Esc>
+" nmap <cr> o<Esc>
+" mapear enter a nueva linea menos en el quickfix
+nnoremap <expr> <CR> &buftype ==# 'quickfix' ? "\<CR>" : 'o<Esc>'
 map ñ <C-^>
-" map <C-d> "_d
-" map K "_ddP
 map K <nop>
 map gp "_ddP
 map :: q:
-" borrar parentesis %
-" map <C-h> %x``x
 
 nnoremap <C-J> 10j
 nnoremap <C-k> 10k
@@ -396,7 +395,22 @@ set tm=500
 " │ Functions │
 " └───────────┘
 " Funcion para buscar en todos los buffers
-" se poidia hacer  con vimgrep <buscar> *"
+function! BuffersList()
+  let all = range(0, bufnr('$'))
+  let res = []
+  for b in all
+    if buflisted(b)
+      call add(res, bufname(b))
+    endif
+  endfor
+  return res
+endfunction
+
+function! GrepBuffers (expression)
+  exec 'vimgrep/'.a:expression.'/ '.join(BuffersList())
+endfunction
+
+command! -nargs=+ GrepBufs call GrepBuffers(<q-args>)
 
 " Limpiar la quickFix
 function ClearQuickfixList()
