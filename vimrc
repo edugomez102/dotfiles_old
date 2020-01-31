@@ -272,7 +272,7 @@ map ñ <C-^>
 " map K "_ddP
 map K <nop>
 map gp "_ddP
-map :: q:i
+map :: q:
 " borrar parentesis %
 " map <C-h> %x``x
 
@@ -539,7 +539,7 @@ inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 " inoremap <C-l>l <Esc>u2z=gi
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=161
-
+nmap <f4> :set spell! <bar> set spelllang=es<cr>
 " ┌──────────┐
 " │ Sessions │
 " └──────────┘
