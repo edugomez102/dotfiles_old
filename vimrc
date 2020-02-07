@@ -413,11 +413,13 @@ endfunction
 command! -nargs=+ GrepBufs call GrepBuffers(<q-args>)
 
 " Limpiar la quickFix
-function ClearQuickfixList()
-  call setqflist([])
-endfunction
-command! ClearQuickfixList call ClearQuickfixList()
-nmap <leader>cf :ClearQuickfixList<cr>
+" function ClearQuickfixList()
+"   call setqflist([])
+" endfunction
+" " command! ClearQuickfixList call ClearQuickfixList()
+" command! ClearQuickfixList cexpr []
+" nmap <leader>cf :ClearQuickfixList<cr>
+nmap <leader>cf :cexpr []<cr>
 
 
 "Movida para cargar todos los buffers"
