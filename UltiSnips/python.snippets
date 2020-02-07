@@ -224,6 +224,15 @@ def write_init_body(args, parents, snip):
 		# snip += "self._%s = %s" % (arg, arg)
 		snip += "self.%s = %s" % (arg, arg)
 
+# def write_str(args, parents, snip):
+# 	snip += "def __str__(): \n return "
+#
+# 	parents = [p.strip() for p in parents.split(",")]
+# 	parents = [p for p in parents if p != 'object']
+#
+# 	for arg in filter(lambda arg: not arg.is_vararg(), args):
+# 		# snip += "self.%s = %s" % (arg, arg)
+# 		snip += "self.%s = %s" % (arg, arg)
 
 def write_slots_args(args, snip):
 	quote = get_quoting_style(snip)

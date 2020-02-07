@@ -347,7 +347,7 @@ snippet ¿ "interrogacion" i
 endsnippet
 
 snippet arr "flecha derecha" i
-$\rightarrow$
+$\rightarrow$ $0
 endsnippet
 
 snippet arrowl "flecha izquierda" i
@@ -483,4 +483,17 @@ endsnippet
 
 snippet codi "code import" b
 \lstinputlisting[language=$1${2:,caption=$3}]{codes/$4}
+endsnippet
+
+snippet ej "Ejemplo" i
+\textit{Ejemplo}: $0
+endsnippet
+
+snippet ejb "Ejemplo box" b
+\textit{Ejemplo}:\\\\
+\fbox{
+	\begin{minipage}{0.95\textwidth}
+	$0
+	\end{minipage}
+}
 endsnippet
