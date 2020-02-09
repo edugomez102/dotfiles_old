@@ -143,25 +143,16 @@ snippet p "print" b
 print($0);
 endsnippet
 
-snippet p" "print comila" b
-print("$0");
-endsnippet
-
-snippet dl "Debug.Log" b
-Debug.Log($0);
-endsnippet
-
-snippet dl" "Debug.Log comilla" b
-Debug.Log("$0");
-endsnippet
-
-snippet m  "method" b
+snippet me  "method" b
 ${2:void} ${3:method}($4)
 {
 	$0
 }
 endsnippet
 
+snippet go "GameObject" i
+GameObject
+endsnippet
 
 snippet todo "todo" b
 //TODO(`!v strftime("%d/%m/%Y")`): ${1:implementar} 

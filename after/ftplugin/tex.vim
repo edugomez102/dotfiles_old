@@ -17,9 +17,10 @@ nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
 imap <c-c> <f7>
 
 " nmap gs [sei<c-x>s
-" nmap gs [sz=
-nmap gs [sei<c-X><c-s>
-nmap gss gi<Esc>
+nmap gs [sz=
+nmap gss ]sz=
+" nmap gs [sei<c-X><c-s>
+" nmap gss gi<Esc>
 
 inoremap <expr> <C-k>      pumvisible() ? "\<C-y><Esc>" : "\<CR>"
 inoremap <expr> <CR>       pumvisible() ? "\<C-y><cr>" : "\<CR>"
