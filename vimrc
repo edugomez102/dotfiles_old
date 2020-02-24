@@ -83,8 +83,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-surround'
 
 " Plugin 'kshenoy/vim-signature'
-" Plugin 'jeetsukumaran/vim-markology'
-" Plugin 'zakj/vim-showmarks'
+Plugin 'jeetsukumaran/vim-markology'
 
 " Plugin 'justinmk/vim-sneak'
 Plugin 'Kazark/vim-SimpleSmoothScroll'
@@ -552,6 +551,21 @@ call deoplete#custom#source('vim',           'rank', 450)
 " \ endif
 " " au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
 " " endif
+
+" ┌───────────┐
+" │ Markology │
+" └───────────┘
+  " - MarkologyHLl  : This group is used to highlight all the lowercase marks.
+  " - MarkologyHLu  : This group is used to highlight all the uppercase marks.
+  " - MarkologyHLo  : This group is used to highlight all other marks.
+  " - MarkologyHLm  : This group is used when multiple marks are on the same line.
+  " - MarkologyHLLine : This group is used to highlight lines if line-highlighting is selected.
+hi MarkologyHLl ctermfg=216 cterm=italic
+hi MarkologyHLu ctermfg=216 cterm=italic
+hi MarkologyHLo ctermfg=209 cterm=italic
+hi MarkologyHLm ctermfg=214 cterm=italic
+nmap <silent> mj <Plug>MarkologyNextLocalMarkPos
+nmap <silent> mk <Plug>MarkologyPrevLocalMarkPos
 
 " =============================================================================
 " Spellcheck
