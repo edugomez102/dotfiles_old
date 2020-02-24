@@ -114,6 +114,10 @@ filetype plugin indent on    " required
 colorscheme codedark
 syntax enable
 
+" hi Normal guibg=NONE ctermbg=NONE
+" hi LineNr ctermfg=none ctermbg=none
+" hi clear SignColumn
+
 " ┌────────────┐
 " │ tab config │
 " └────────────┘
@@ -133,6 +137,7 @@ set wildmenu
 set wildignorecase
 set showcmd
 set cursorline
+" hi CursorLine guibg=NONE ctermbg=NONE
 set showmatch 
 set title
 set so=3 "para que el cursor se quede a 5 lineas del borde de la pantalla
