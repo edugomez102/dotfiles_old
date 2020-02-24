@@ -289,6 +289,8 @@ nmap <leader>c <Plug>window:quickfix:loop
 
 " buscar seleccion en visual mode
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+" remplazar visual mode
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 " buscar palabra exacta
 nnoremap <leader><Space> /\<\><left><left>
 
