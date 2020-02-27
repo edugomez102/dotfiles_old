@@ -14,6 +14,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Track the engine.
 Plugin 'SirVer/ultisnips'
+Plugin 'matze/vim-move'
+let g:move_key_modifier = "C"
 
 Plugin 'tomtom/tcomment_vim'
 " Autocompletition
@@ -274,8 +276,8 @@ map K <nop>
 map gp pk"_dd
 map :: q:
 
-nnoremap <C-J> 10j
-nnoremap <C-k> 10k
+" nnoremap <C-J> 10j
+" nnoremap <C-k> 10k
 " map ; A;<esc>
 map ´ <C-]>
 
@@ -557,7 +559,7 @@ call deoplete#custom#source('vim',           'rank', 450)
   " - MarkologyHLLine : This group is used to highlight lines if line-highlighting is selected.
 hi MarkologyHLl ctermfg=216 cterm=italic
 hi MarkologyHLu ctermfg=216 cterm=italic
-hi MarkologyHLo ctermfg=209 cterm=italic
+hi MarkologyHLo ctermfg=189 cterm=italic
 hi MarkologyHLm ctermfg=214 cterm=italic
 nmap <silent> mj <Plug>MarkologyNextLocalMarkPos
 nmap <silent> mk <Plug>MarkologyPrevLocalMarkPos
