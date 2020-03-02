@@ -16,6 +16,12 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'matze/vim-move'
 let g:move_key_modifier = "C"
+" Plugin 'junegunn/fzf.vim'
+" set rtp+=~/.fzf
+" Plugin 'inkarkat/vim-GrepCommands'
+Plugin 'liuchengxu/vim-clap'
+let g:clap_layout = { 'relative': 'editor', 'width': '90%', 'col' : '5%' , 'row' : '10%', 'height': '50%'}
+let g:clap_on_move_delay = 1
 
 Plugin 'tomtom/tcomment_vim'
 " Autocompletition
@@ -54,9 +60,6 @@ let g:UltiSnipsJumpBackwardTrigger="<C-H>"
 let g:UltiSnipsEditSplit="vertical"
 
 Plugin 'wakatime/vim-wakatime'
-
-Plugin 'fholgado/minibufexpl.vim'
-let g:miniBufExplorerAutoStart = 0
 
 Plugin 'kana/vim-textobj-line'
 Plugin 'kana/vim-textobj-user'
@@ -150,8 +153,8 @@ set listchars=tab:┊\ ,space:•,nbsp:␣,trail:⌁,precedes:«,extends:»
 " set listchars+=eol:↲
 hi SpecialKey ctermfg=238
 hi NonText ctermfg=239
-" set fillchars+=vert:\▏
-set fillchars+=vert:\ 
+set fillchars+=vert:\▏
+" set fillchars+=vert:\ 
 
 " ┌────────────────┐
 " │ Number options │
@@ -257,6 +260,7 @@ map ¡ :noh<cr>
 map º $
 map ¡ ]m
 map ¿ [m
+map Y y$
 
 " Insert Mode
 imap <c-e> <Del>
@@ -286,31 +290,30 @@ map :: q:
 " map ; A;<esc>
 map ´ <C-]>
 
-nnoremap <C-p> :ls<cr>:b<Space>
+" nnoremap <C-p> :ls<cr>:b<Space>
+nnoremap <c-p> :Clap buffers<cr>
 map Q @:
 nnoremap <S-s> $s
 
 map <F8> :set foldmethod=syntax<cr>
-
+" map <leader>a :bufdo :args ## %<cr>
 nmap <leader>c <Plug>window:quickfix:loop
 
 " buscar seleccion en visual mode
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
-" remplazar visual mode
-vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+" remplazar visual mode desde linea actual hasta fin fichero
+vnoremap <C-r> "hy:.,$s/<C-r>h//gc<left><left><left>
+
 " buscar palabra exacta
 nnoremap <leader><Space> /\<\><left><left>
-
-" Remaps para el MBE
-map <leader>f :MBEFocus<cr>
-map <leader>t :MBEToggle<cr>
-" map <leader>c :MBEClose<cr>
-map <leader>u :MBEToggleMRU<cr>
 
 "Movidas con el indent
 map <F7> gg=G<C-o><C-o>
 nnoremap p p=`]
 nnoremap P P=`]
+
+nnoremap <leader>f :Clap<cr>
+nnoremap <leader>p :Clap yanks<cr>
 
 " Plugin toggle comment
 xnoremap <C-\> gc
