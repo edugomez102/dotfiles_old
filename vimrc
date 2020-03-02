@@ -254,6 +254,7 @@ nmap <leader>w :w!<cr>
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
 nnoremap <leader>j :find ./**/
+nnoremap <leader>s :vimgrep  ./**/*<left><left><left><left><left><left><left>
 map <Space> /
 map <C-@> ?
 map ¡ :noh<cr>
