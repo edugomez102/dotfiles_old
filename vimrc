@@ -80,6 +80,7 @@ Plugin 'mhinz/vim-signify'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'iagofumo/vim-nerdtree-syntax-highlight'
 
 Plugin 'chrisbra/Colorizer'
 Plugin 'drmingdrmer/vim-toggle-quickfix'
@@ -98,6 +99,7 @@ Plugin 'ap/vim-css-color'
 Plugin 'mattn/emmet-vim'
 Plugin 'adelarsq/vim-matchit'
 
+Plugin 'ryanoasis/vim-devicons'
 "Improve search
 Plugin 'osyo-manga/vim-anzu'
 nmap n <Plug>(anzu-n-with-echo)
@@ -121,6 +123,7 @@ syntax enable
 " hi Normal guibg=NONE ctermbg=NONE
 " hi LineNr ctermfg=none ctermbg=none
 " hi clear SignColumn
+set autochdir
 
 " ┌────────────┐
 " │ tab config │
@@ -495,7 +498,7 @@ let g:signify_sign_change = '~'
 let NERDTreeRespectWildIgnore=1
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
+" let NERDTreeDirArrows = 1
 let g:NERDTreeIndicatorMapCustom = {
 	\ "Modified"  : "●",
     \ "Staged"    : "✚",
@@ -508,6 +511,13 @@ let g:NERDTreeIndicatorMapCustom = {
     \ 'Ignored'   : '☒',
     \ "Unknown"   : "?"
     \ }
+let NERDTreeDirArrowExpandable="\u00a0"
+let NERDTreeDirArrowCollapsible="\u00a0"
+  " let g:webdevicons_conceal_nerdtree_brackets = 1
+  let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+  " let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+
+
 
 " =============================================================================
 " Deoplete
