@@ -1,0 +1,7 @@
+" Install dependencies:
+" pip install pynvim
+" :call clap#installer#download_binary()
+" pip install jedi
+" cd ~/.vim && mkdir undo-dir
+
+
