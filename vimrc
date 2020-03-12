@@ -1,66 +1,68 @@
-"Movidas del gestor de Plugins Vundle
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" colorschemes
+Plug 'morhetz/gruvbox'
+" Plug 'arcticicestudio/nord-vim'
+Plug 'cocopon/iceberg.vim'
+Plug 'tomasiser/vim-code-dark'
 
-" Track the engine.
-Plugin 'SirVer/ultisnips'
-Plugin 'matze/vim-move'
+" syntax highlighting
+Plug 'sheerun/vim-polyglot'
+
+Plug 'ryanoasis/vim-devicons'
+
+Plug 'SirVer/ultisnips'
+Plug 'matze/vim-move'
 let g:move_key_modifier = "C"
-" set rtp+=~/.fzf
-" Plugin 'junegunn/fzf.vim'
-" Plugin 'inkarkat/vim-GrepCommands'
-Plugin 'liuchengxu/vim-clap'
+
+Plug 'junegunn/vim-easy-align'
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+Plug 'liuchengxu/vim-clap'
 let g:clap_layout = { 'relative': 'editor', 'width': '90%', 'col' : '5%' , 'row' : '10%', 'height': '50%'}
 let g:clap_on_move_delay = 1
 
-Plugin 'tomtom/tcomment_vim'
+Plug 'tomtom/tcomment_vim'
+
 " Autocompletition
-Plugin 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim'
 
-" Tabular
-Plugin 'godlygeek/tabular'
-
-Plugin 'neovim/pynvim'
-Plugin 'roxma/nvim-yarp'
-Plugin 'roxma/vim-hug-neovim-rpc'
-Plugin 'Shougo/neco-vim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'Shougo/neco-vim'
 
 "java
-Plugin 'artur-shaik/vim-javacomplete2'
+Plug 'artur-shaik/vim-javacomplete2'
 
 "python
-Plugin 'davidhalter/jedi'
-Plugin 'deoplete-plugins/deoplete-jedi'
-Plugin 'Vimjas/vim-python-pep8-indent'
+Plug 'davidhalter/jedi'
+Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'Vimjas/vim-python-pep8-indent'
 
 " LaTeX
-Plugin 'lervag/vimtex'
+Plug 'lervag/vimtex'
 let g:tex_flavor = 'latex'
 
 " Markdown
-" Plugin 'plasticboy/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
 
 " javascript
-" Plugin 'wokalski/autocomplete-flow'
-Plugin 'ternjs/tern_for_vim'
-" Use tern_for_vim.
-" let g:tern#command = ["tern"]
-" let g:tern#arguments = ["--persistent"]
-" Plugin 'carlitux/deoplete-ternjs'
-Plugin 'pangloss/vim-javascript'
+" Plug 'wokalski/autocomplete-flow'
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+\]
 
 "C#
-" Plugin 'OmniSharp/omnisharp-vim'
+" Plug 'OmniSharp/omnisharp-vim'
 " let g:OmniSharp_server_stdio = 1
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -69,60 +71,56 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<C-H>"
 let g:UltiSnipsEditSplit="vertical"
 
-Plugin 'wakatime/vim-wakatime'
+Plug 'wakatime/vim-wakatime'
 
-Plugin 'kana/vim-textobj-line'
-Plugin 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-user'
 
-Plugin 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 
-Plugin 'mengelbrecht/lightline-bufferline'
+Plug 'mengelbrecht/lightline-bufferline'
 
-" Plugin 'lifepillar/vim-mucomplete'
+" Plug 'lifepillar/vim-mucomplete'
 
-Plugin 'dhruvasagar/vim-pairify'
+Plug 'dhruvasagar/vim-pairify'
 " inoremap <S-tab> <ESC>la
 
-Plugin 'itchyny/vim-gitbranch'
+Plug 'itchyny/vim-gitbranch'
 
-Plugin 'neomake/neomake'
-let g:neomake_javascript_enabled_makers = ['eslint'] 
+Plug 'neomake/neomake'
+Plug 'mhinz/vim-signify'
 
-Plugin 'mhinz/vim-signify'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'iagofumo/vim-nerdtree-syntax-highlight'
+Plug 'chrisbra/Colorizer'
+Plug 'drmingdrmer/vim-toggle-quickfix'
 
-Plugin 'chrisbra/Colorizer'
-Plugin 'drmingdrmer/vim-toggle-quickfix'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
 
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'tpope/vim-surround'
+" Plug 'kshenoy/vim-signature'
+Plug 'jeetsukumaran/vim-markology'
 
-" Plugin 'kshenoy/vim-signature'
-Plugin 'jeetsukumaran/vim-markology'
-
-" Plugin 'justinmk/vim-sneak'
-Plugin 'Kazark/vim-SimpleSmoothScroll'
+" Plug 'justinmk/vim-sneak'
+Plug 'Kazark/vim-SimpleSmoothScroll'
 
 "html imrovements
-Plugin 'ap/vim-css-color'
-Plugin 'mattn/emmet-vim'
-Plugin 'adelarsq/vim-matchit'
+Plug 'ap/vim-css-color'
+Plug 'mattn/emmet-vim'
+Plug 'adelarsq/vim-matchit'
 
-Plugin 'ryanoasis/vim-devicons'
 "Improve search
-Plugin 'osyo-manga/vim-anzu'
+Plug 'osyo-manga/vim-anzu'
 nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
 
-Plugin 'DougBeney/pickachu'
+Plug 'DougBeney/pickachu'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()
+
 filetype plugin indent on    " required
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -130,12 +128,12 @@ filetype plugin indent on    " required
 " │ Colors │
 " └────────┘
 colorscheme codedark
+" set background=dark
 syntax enable
 
 " hi Normal guibg=NONE ctermbg=NONE
 " hi LineNr ctermfg=none ctermbg=none
 " hi clear SignColumn
-set autochdir
 
 " ┌────────────┐
 " │ tab config │
@@ -331,7 +329,7 @@ nnoremap P P=`]
 nnoremap <leader>f :Clap<cr>
 nnoremap <leader>p :Clap yanks<cr>
 
-" Plugin toggle comment
+" Plug toggle comment
 xnoremap <C-\> gc
 "autocmd FileType apache setlocal commentstring=#\ %s
 
@@ -360,7 +358,7 @@ let g:lightline = {
 " autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
 
 
-" Plugin de highlight C++?
+" Plug de highlight C++?
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
@@ -510,7 +508,7 @@ let g:signify_sign_change = '~'
 let NERDTreeRespectWildIgnore=1
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
-" let NERDTreeDirArrows = 1
+let NERDTreeDirArrows = 1
 let g:NERDTreeIndicatorMapCustom = {
 	\ "Modified"  : "●",
     \ "Staged"    : "✚",
@@ -525,10 +523,9 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 let NERDTreeDirArrowExpandable="\u00a0"
 let NERDTreeDirArrowCollapsible="\u00a0"
-  " let g:webdevicons_conceal_nerdtree_brackets = 1
-  let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-  " let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
-
+" let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+" let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 
 
 " =============================================================================
