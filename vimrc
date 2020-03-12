@@ -16,8 +16,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'matze/vim-move'
 let g:move_key_modifier = "C"
-" Plugin 'junegunn/fzf.vim'
 " set rtp+=~/.fzf
+" Plugin 'junegunn/fzf.vim'
 " Plugin 'inkarkat/vim-GrepCommands'
 Plugin 'liuchengxu/vim-clap'
 let g:clap_layout = { 'relative': 'editor', 'width': '90%', 'col' : '5%' , 'row' : '10%', 'height': '50%'}
@@ -27,6 +27,10 @@ Plugin 'tomtom/tcomment_vim'
 " Autocompletition
 Plugin 'Shougo/deoplete.nvim'
 
+" Tabular
+Plugin 'godlygeek/tabular'
+
+Plugin 'neovim/pynvim'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'Shougo/neco-vim'
@@ -48,6 +52,12 @@ let g:tex_flavor = 'latex'
 
 " javascript
 " Plugin 'wokalski/autocomplete-flow'
+Plugin 'ternjs/tern_for_vim'
+" Use tern_for_vim.
+" let g:tern#command = ["tern"]
+" let g:tern#arguments = ["--persistent"]
+" Plugin 'carlitux/deoplete-ternjs'
+Plugin 'pangloss/vim-javascript'
 
 "C#
 " Plugin 'OmniSharp/omnisharp-vim'
@@ -76,6 +86,8 @@ Plugin 'dhruvasagar/vim-pairify'
 Plugin 'itchyny/vim-gitbranch'
 
 Plugin 'neomake/neomake'
+let g:neomake_javascript_enabled_makers = ['eslint'] 
+
 Plugin 'mhinz/vim-signify'
 
 Plugin 'scrooloose/nerdtree'
