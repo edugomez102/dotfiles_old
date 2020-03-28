@@ -15,8 +15,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'SirVer/ultisnips'
-Plug 'matze/vim-move'
-let g:move_key_modifier = "C"
+" Plug 'matze/vim-move'
+" let g:move_key_modifier = "C"
 
 Plug 'junegunn/vim-easy-align'
 xmap ga <Plug>(EasyAlign)
@@ -46,6 +46,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 " LaTeX
 Plug 'lervag/vimtex'
 let g:tex_flavor = 'latex'
+let g:polyglot_disabled = ['latex']
 
 " Markdown
 " Plug 'plasticboy/vim-markdown'
@@ -70,6 +71,11 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<C-H>"
 let g:UltiSnipsEditSplit="vertical"
+let g:ultisnips_javascript = {
+     \ 'keyword-spacing': 'always',
+     \ 'semi': 'never',
+     \ 'space-before-function-paren': 'always',
+     \ }
 
 Plug 'wakatime/vim-wakatime'
 
@@ -88,6 +94,11 @@ Plug 'dhruvasagar/vim-pairify'
 Plug 'itchyny/vim-gitbranch'
 
 Plug 'neomake/neomake'
+    augroup my_neomake_signs
+        au!
+        autocmd ColorScheme *
+            \ hi NeomakeWarningSign ctermfg=186
+    augroup END
 Plug 'mhinz/vim-signify'
 
 Plug 'scrooloose/nerdtree'
@@ -263,6 +274,9 @@ map <leader>tt :tabnext<cr>
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/<cr>
 
 " Remaps propios
+map s "_d
+nmap ss "_dd
+nmap <s-S> "_D
 nmap <leader>w :w!<cr>
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
@@ -306,8 +320,10 @@ map ´ <C-]>
 
 " nnoremap <C-p> :ls<cr>:b<Space>
 nnoremap <c-p> :Clap buffers<cr>
+nnoremap <c-h> :Clap lines<cr>
+nnoremap <c-j> :Clap files<cr>
+nnoremap <c-k> :Clap filer<cr>
 map Q @:
-nnoremap <S-s> $s
 
 map <F8> :set foldmethod=syntax<cr>
 " map <leader>a :bufdo :args ## %<cr>
