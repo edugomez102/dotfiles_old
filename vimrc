@@ -86,6 +86,8 @@ Plug 'itchyny/lightline.vim'
 
 Plug 'mengelbrecht/lightline-bufferline'
 
+Plug 'liuchengxu/vista.vim'
+
 " Plug 'lifepillar/vim-mucomplete'
 
 Plug 'dhruvasagar/vim-pairify'
