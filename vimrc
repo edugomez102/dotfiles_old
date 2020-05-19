@@ -23,7 +23,7 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 Plug 'liuchengxu/vim-clap'
-let g:clap_layout = { 'relative': 'editor', 'width': '90%', 'col' : '5%' , 'row' : '10%', 'height': '50%'}
+let g:clap_layout = { 'relative': 'editor', 'width': '80%', 'col' : '4%' , 'row' : '10%', 'height': '50%'}
 let g:clap_on_move_delay = 1
 
 Plug 'tomtom/tcomment_vim'
@@ -47,6 +47,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'lervag/vimtex'
 let g:tex_flavor = 'latex'
 let g:polyglot_disabled = ['latex']
+let g:vimtex_view_general_viewer = 'okular'
 
 " Markdown
 " Plug 'plasticboy/vim-markdown'
@@ -87,6 +88,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 
 Plug 'liuchengxu/vista.vim'
+let g:vista_stay_on_open = 0
 
 " Plug 'lifepillar/vim-mucomplete'
 
@@ -116,7 +118,7 @@ Plug 'tpope/vim-surround'
 Plug 'jeetsukumaran/vim-markology'
 
 " Plug 'justinmk/vim-sneak'
-Plug 'Kazark/vim-SimpleSmoothScroll'
+" Plug 'Kazark/vim-SimpleSmoothScroll'
 
 "html imrovements
 Plug 'ap/vim-css-color'
@@ -192,6 +194,8 @@ augroup numbertoggle
 	autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
+
+
 " ┌─────────────┐
 " │ File optins │
 " └─────────────┘
@@ -219,6 +223,8 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
+nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
+nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
 
 " Performance options
 set lazyredraw
@@ -324,7 +330,8 @@ map ´ <C-]>
 nnoremap <c-p> :Clap buffers<cr>
 nnoremap <c-h> :Clap lines<cr>
 nnoremap <c-j> :Clap files<cr>
-nnoremap <c-k> :Clap filer<cr>
+nnoremap <c-n> :Clap filer<cr>
+nnoremap <c-k> :Clap tags<cr>
 map Q @:
 
 map <F8> :set foldmethod=syntax<cr>
