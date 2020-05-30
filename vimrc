@@ -25,11 +25,37 @@ nmap ga <Plug>(EasyAlign)
 Plug 'liuchengxu/vim-clap'
 let g:clap_layout = { 'relative': 'editor', 'width': '80%', 'col' : '4%' , 'row' : '10%', 'height': '50%'}
 let g:clap_on_move_delay = 1
+let g:clap_session_dir = '~/.vim/sessions'
+hi default link ClapProjTagPattern Normal
+Plug 'hokorobi/vim-clap-sessions'
+let g:clap_provider_dotfiles = {
+      \ 'source': ['~/.vim/vimrc', '~/.bashrc', '~/.zshrc'],
+      \ 'sink': 'e',
+      \ }
 
 Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-eunuch'
 
 " Autocompletition
-Plug 'Shougo/deoplete.nvim'
+" Plug 'Shougo/deoplete.nvim'
+" Use release branch (Recommend)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
+
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
 
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
@@ -40,7 +66,7 @@ Plug 'artur-shaik/vim-javacomplete2'
 
 "python
 Plug 'davidhalter/jedi'
-Plug 'deoplete-plugins/deoplete-jedi'
+" Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'Vimjas/vim-python-pep8-indent'
 
 " LaTeX
@@ -54,15 +80,15 @@ let g:vimtex_view_general_viewer = 'okular'
 
 " javascript
 " Plug 'wokalski/autocomplete-flow'
-Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.javascript = [
-  \ 'tern#Complete',
-  \ 'jspc#omni'
-\]
-
+" Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
+" Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+" Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+" let g:deoplete#omni#functions = {}
+" let g:deoplete#omni#functions.javascript = [
+"   \ 'tern#Complete',
+"   \ 'jspc#omni'
+" \]
+"
 "C#
 " Plug 'OmniSharp/omnisharp-vim'
 " let g:OmniSharp_server_stdio = 1
@@ -103,7 +129,10 @@ Plug 'neomake/neomake'
         autocmd ColorScheme *
             \ hi NeomakeWarningSign ctermfg=186
     augroup END
+
 Plug 'mhinz/vim-signify'
+
+Plug 'tpope/vim-obsession'
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -297,10 +326,12 @@ map º $
 map ¡ ]m
 map ¿ [m
 map Y y$
+map <leader>d :SignifyHunkDiff<cr>
 
 " Insert Mode
 imap <c-e> <Del>
 imap ´ {
+
 "toggle quickfix
 " nmap <C-g><C-o> <Plug>window:quickfix:toggle
 nmap <F3> <Plug>window:quickfix:loop
@@ -352,7 +383,7 @@ nnoremap p p=`]
 nnoremap P P=`]
 
 nnoremap <leader>f :Clap<cr>
-nnoremap <leader>p :Clap yanks<cr>
+nnoremap <leader>y :Clap yanks<cr>
 
 " Plug toggle comment
 xnoremap <C-\> gc
@@ -556,21 +587,21 @@ let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 " =============================================================================
 " Deoplete
 " =============================================================================
-let g:deoplete#enable_at_startup = 1
-
-call deoplete#custom#option({
-			\ 'auto_complete:delay' : 30,
-			\ 'min_pattern_length': 1,
-			\ 'max_list': 7000,
-			\ 'auto_preview': v:true,
-			\ 'smart_case': v:true,
-			\ 'skip_multibyte': v:true,
-			\ })
-			" \ 'skip_chars': ['(', ')', '<', '>'],
-
-call deoplete#custom#source('ultisnips',        'rank', 600)
-" call deoplete#custom#source('omni',          'rank', 500)
-call deoplete#custom#source('vim',           'rank', 450)
+" let g:deoplete#enable_at_startup = 1
+"
+" call deoplete#custom#option({
+" 			\ 'auto_complete:delay' : 30,
+" 			\ 'min_pattern_length': 1,
+" 			\ 'max_list': 7000,
+" 			\ 'auto_preview': v:true,
+" 			\ 'smart_case': v:true,
+" 			\ 'skip_multibyte': v:true,
+" 			\ })
+" 			" \ 'skip_chars': ['(', ')', '<', '>'],
+"
+" call deoplete#custom#source('ultisnips',        'rank', 600)
+" " call deoplete#custom#source('omni',          'rank', 500)
+" call deoplete#custom#source('vim',           'rank', 450)
 
 " call deoplete#custom#option('omni_patterns', {
 " 		\ 'java': '[^. *\t]\.\w*',
@@ -638,4 +669,14 @@ set ssop-=options    " do not store global and local values in a session
 " └─────────────────┘
 set undodir=~/.vim/undo-dir
 set undofile
+
+
+" ┌──────────────┐
+" │ open manuals │
+" └──────────────┘
+runtime! ftplugin/man.vim
+
+
+map <F9> :NeomakeSh viewnior ~/Pictures/code/csscolosr.png<cr>
+" map <F6> :let $VIM_DIR=expand('%:p:h')<CR>:!cd $VIM_DIR<CR>
 
