@@ -172,8 +172,14 @@ snippet fun; "function" i
 function($1){
 	$0
 };
-
 endsnippet
+
+snippet fun "function" i
+function ${1:name}($2){
+	$0
+}
+endsnippet
+
 snippet for "for" b
 for($1; $2; $3) {
 	$0
@@ -188,6 +194,34 @@ endsnippet
 
 snippet cl "Console.log" b
 console.log($1);
+endsnippet
+
+snippet canvas "canvas model" b
+let cv  = document.querySelector('${1:canvas}'),
+	ctx = cv.getContext('2d');
+$0
+endsnippet
+
+snippet ajax "ajax model" b
+let xhr  = new XMLHttpRequest(),
+	url  = '$1';
+
+xhr.open('${2:POST}', url, true);
+xhr.onload = function(){
+	let resp = JSON.parse(xhr.responseText);
+	$0
+};
+xhr.onerror = function(){
+	console.log('Error');
+};
+xhr.send();
+
+endsnippet
+
+snippet forEach "forEach model" i
+forEach(function(item){
+	$0
+});
 endsnippet
 
 
