@@ -110,6 +110,7 @@ Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-user'
 
 Plug 'itchyny/lightline.vim'
+Plug 'prettier/vim-prettier'
 
 Plug 'mengelbrecht/lightline-bufferline'
 
@@ -142,6 +143,7 @@ Plug 'drmingdrmer/vim-toggle-quickfix'
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 " Plug 'kshenoy/vim-signature'
 Plug 'jeetsukumaran/vim-markology'
@@ -153,6 +155,7 @@ Plug 'jeetsukumaran/vim-markology'
 Plug 'ap/vim-css-color'
 Plug 'mattn/emmet-vim'
 Plug 'adelarsq/vim-matchit'
+Plug 'AndrewRadev/tagalong.vim'
 
 "Improve search
 Plug 'osyo-manga/vim-anzu'
@@ -162,6 +165,10 @@ nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
 
 Plug 'DougBeney/pickachu'
+
+Plug 'https://github.com/raghur/vim-ghost'
+
+Plug 'OmniSharp/omnisharp-vim'
 
 call plug#end()
 
@@ -647,6 +654,23 @@ hi MarkologyHLo ctermfg=189 cterm=italic
 hi MarkologyHLm ctermfg=214 cterm=italic
 nmap <silent> mj <Plug>MarkologyNextLocalMarkPos
 nmap <silent> mk <Plug>MarkologyPrevLocalMarkPos
+
+" ┌───────────┐
+" │ OmniSharp │
+" └───────────┘
+" let g:OmniSharp_highlight_types = 1
+let g:omnicomplete_fetch_full_documentation = 1
+
+augroup omnisharp_commands
+	autocmd!
+autocmd CursorHold *.cs OmniSharpTypeLookup
+	autocmd FileType cs nnoremap <buffer> <Leader>c :OmniSharpDocumentation<CR>
+	autocmd FileType cs nnoremap <buffer> <Leader>x :OmniSharpPreviewDefinition<CR>
+	set completeopt=longest,menuone,preview,popuphidden
+augroup END
+
+
+
 
 " =============================================================================
 " Spellcheck
