@@ -170,6 +170,8 @@ Plug 'https://github.com/raghur/vim-ghost'
 
 Plug 'OmniSharp/omnisharp-vim'
 
+" Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 filetype plugin indent on    " required
@@ -300,7 +302,7 @@ let g:netrw_hide = 1
 " │ Remaps │
 " └────────┘
 
-let mapleader = ","
+let mapleader = "\<Space>"
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 " Close the current buffer
@@ -321,12 +323,13 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/<cr>
 map s "_d
 nmap ss "_dd
 nmap <s-S> "_D
+
 nmap <leader>w :w!<cr>
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
 nnoremap <leader>j :find ./**/
 nnoremap <leader>s :vimgrep  ./**/*<left><left><left><left><left><left><left>
-map <Space> /
+" map <Space> /
 map <C-@> ?
 map ¡ :noh<cr>
 map º $
@@ -338,6 +341,7 @@ map <leader>d :SignifyHunkDiff<cr>
 " Insert Mode
 imap <c-e> <Del>
 imap ´ {
+imap jk <Esc>
 
 "toggle quickfix
 " nmap <C-g><C-o> <Plug>window:quickfix:toggle
@@ -347,7 +351,7 @@ map <leader>ee :NERDTreeToggle<cr>
 
 map <leader>qa :qall<cr>
 map <leader>db :WakaTimeToday<cr>
-map <leader>qs :mksession!<cr>
+map <leader>qs :ClapMksession<cr>
  "Espejo hay que empezar una linea antes
 map <leader>rv :g/^/m'<<cr> :noh<cr>
 
@@ -359,9 +363,6 @@ map K <nop>
 map gp pk"_dd
 map :: q:
 
-" nnoremap <C-J> 10j
-" nnoremap <C-k> 10k
-" map ; A;<esc>
 map ´ <C-]>
 
 " nnoremap <C-p> :ls<cr>:b<Space>
@@ -384,6 +385,9 @@ vnoremap <C-r> "hy:.,$s/<C-r>h//gc<left><left><left>
 " buscar palabra exacta
 nnoremap <leader><Space> /\<\><left><left>
 
+" buscar y seleccionar en bloque
+nnoremap <Space>r :'{,'}s/\<<C-r>=expand('<cword>')<CR>\>/
+
 "Movidas con el indent
 map <F7> gg=G<C-o><C-o>
 nnoremap p p=`]
@@ -391,6 +395,9 @@ nnoremap P P=`]
 
 nnoremap <leader>f :Clap<cr>
 nnoremap <leader>y :Clap yanks<cr>
+
+nmap <leader>t :call Toggle()<CR>
+vmap <leader>t <ESC>:call Toggle()<CR>
 
 " Plug toggle comment
 xnoremap <C-\> gc

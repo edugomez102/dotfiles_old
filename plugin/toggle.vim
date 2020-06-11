@@ -72,8 +72,8 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 imap <C-T> <C-O>:call Toggle()<CR>
-nmap <leader>r :call Toggle()<CR>
-vmap <leader>r <ESC>:call Toggle()<CR>
+" nmap <leader>r :call Toggle()<CR>
+" vmap <leader>r <ESC>:call Toggle()<CR>
 
 "--------------------------------------------------
 " If you don't want to break the standard <C-T> assignments,
