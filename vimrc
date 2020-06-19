@@ -7,9 +7,7 @@
 " ┌──────────────┐
 " │ Plug manager │
 " └──────────────┘
-
-filetype off                  " required
-call plug#begin('~/.vim/plugged')
+call plug#begin('./plugged')
 
 " Colorschemes
 Plug 'morhetz/gruvbox'
@@ -81,6 +79,9 @@ Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-user'
 
 Plug 'dhruvasagar/vim-pairify'
+if !exists('g:pairify_map')
+	let g:pairify_map = "<s-tab>"
+endif
 " inoremap <S-tab> <ESC>la
 
 Plug 'neomake/neomake'
@@ -172,8 +173,6 @@ Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'wakatime/vim-wakatime'
 
 call plug#end()
-filetype plugin indent on    " required
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ┌────────┐
@@ -235,6 +234,7 @@ augroup END
 " ┌──────────────┐
 " │ File options │
 " └──────────────┘
+filetype plugin indent on
 " Cargar archivos al cambiar en disco
 set autoread
 set updatetime=100
@@ -286,32 +286,38 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " ┌───────────┐
 " │ Markology │
 " └───────────┘
-hi MarkologyHLl ctermfg=216 cterm=italic
-hi MarkologyHLu ctermfg=216 cterm=italic
-hi MarkologyHLo ctermfg=189 cterm=italic
-hi MarkologyHLm ctermfg=214 cterm=italic
-nmap <silent> mj <Plug>MarkologyNextLocalMarkPos
-nmap <silent> mk <Plug>MarkologyPrevLocalMarkPos
+if has_key(plugs, "vim-markology")
+	hi MarkologyHLl ctermfg=216 cterm=italic
+	hi MarkologyHLu ctermfg=216 cterm=italic
+	hi MarkologyHLo ctermfg=189 cterm=italic
+	hi MarkologyHLm ctermfg=214 cterm=italic
+	nmap <silent> mj <Plug>MarkologyNextLocalMarkPos
+	nmap <silent> mk <Plug>MarkologyPrevLocalMarkPos
+endif
 
 " ┌─────────┐
 " │ Signify │
 " └─────────┘
-highlight SignifySignChange ctermfg=yellow guifg=#ffff00 cterm=NONE gui=NONE
-highlight SignifySignAdd    ctermfg=green  guifg=#00ff00 cterm=NONE gui=NONE
-highlight SignifySignDelete ctermfg=89  guifg=#ff0000 cterm=NONE gui=NONE
-let g:signify_sign_change = '~'
+if has_key(plugs, "vim-signify")
+	highlight SignifySignChange ctermfg=yellow guifg=#ffff00 cterm=NONE gui=NONE
+	highlight SignifySignAdd    ctermfg=green  guifg=#00ff00 cterm=NONE gui=NONE
+	highlight SignifySignDelete ctermfg=89  guifg=#ff0000 cterm=NONE gui=NONE
+	let g:signify_sign_change = '~'
+endif
 
 " ┌───────────┐
 " │ OmniSharp │
 " └───────────┘
-let g:omnicomplete_fetch_full_documentation = 1
-augroup omnisharp_commands
-	autocmd!
-	autocmd CursorHold *.cs OmniSharpTypeLookup
-	autocmd FileType cs nnoremap <buffer> <Leader>c :OmniSharpDocumentation<CR>
-	autocmd FileType cs nnoremap <buffer> <Leader>x :OmniSharpPreviewDefinition<CR>
-	set completeopt=longest,menuone,preview,popuphidden
-augroup END
+if has_key(plugs, "omnisharp-vim")
+	let g:omnicomplete_fetch_full_documentation = 1
+	augroup omnisharp_commands
+		autocmd!
+		autocmd CursorHold *.cs OmniSharpTypeLookup
+		autocmd FileType cs nnoremap <buffer> <Leader>c :OmniSharpDocumentation<CR>
+		autocmd FileType cs nnoremap <buffer> <Leader>x :OmniSharpPreviewDefinition<CR>
+		set completeopt=longest,menuone,preview,popuphidden
+	augroup END
+endif
 
 " ┌───────────┐
 " │ Ligthline │
@@ -418,8 +424,8 @@ nnoremap <Space>r :'{,'}s/\<<C-r>=expand('<cword>')<CR>\>/
 " TODO: check
 "Movidas con el indent
 " map <F7> gg=G<C-o><C-o>
-" nnoremap p p=`]
-" nnoremap P P=`]
+nnoremap p p=`]
+nnoremap P P=`]
 
 
 nmap <leader>t :call Toggle()<CR>
